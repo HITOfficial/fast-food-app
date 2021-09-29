@@ -1,0 +1,9 @@
+@media (max-width: 767px) {
+    .trademark-warning {
+        display: none !important;
+    }
+}
+
+.ml-1 {
+    margin-left: 1rem;
+}

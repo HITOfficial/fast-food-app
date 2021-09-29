@@ -1,0 +1,15 @@
+@media (min-width: 768px){
+    .navbar-nav {
+        padding-left: 2.5rem;
+    }
+    .nav-item {
+        margin-left: 1.5rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .order-box {
+        justify-content: center !important;
+        width: 100%;
+    }
+}

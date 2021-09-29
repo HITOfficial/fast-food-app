@@ -1,0 +1,9 @@
+.info {
+    letter-spacing: -0.04rem;
+}
+
+@media (max-width:767px){
+    .info {
+        display: block !important;
+    }
+}
