@@ -2,6 +2,10 @@
     letter-spacing: -0.04rem;
 }
 
+.text-black {
+    color:black
+}
+
 @media (max-width:767px){
     .info {
         display: block !important;

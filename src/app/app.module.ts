@@ -18,12 +18,12 @@ import { BoxComponent } from './home/boxes/box/box.component';
 import { FooterComponent } from './footer/footer.component';
 import { TrademarkWarningNoticeComponent } from './footer/trademark-warning-notice/trademark-warning-notice.component';
 import { InfoComponent } from './footer/info/info.component';
-import { RegulationsComponent } from './footer/info/regulations/regulations.component';
-import { HelpComponent } from './footer/info/help/help.component';
-import { ContactComponent } from './footer/info/contact/contact.component';
-import { AuthorComponent } from './footer/author/author.component';
-import { FaqComponent } from './footer/info/faq/faq.component';
 import { SocialsBoxComponent } from './footer/socials-box/socials-box.component';
+import { AuthorComponent } from './footer/author/author.component';
+import { HelpComponent } from './help/help.component';
+import { RegulationsComponent } from './regulations/regulations.component';
+import { ContactComponent } from './contact/contact.component';
+import { FaqComponent } from './faq/faq.component';
 import { OrderNowComponent } from './order-now/order-now.component';
 
 
@@ -34,6 +34,11 @@ const routes: Routes = [
   { path: "get-job", component: GetJobComponent },
   { path: "shopping-bin", component: ShoppingBinComponent },
   { path: "socials", component: SocialsComponent },
+  { path: "order-now", component: OrderNowComponent },
+  { path: "contact", component: ContactComponent },
+  { path: "help", component: HelpComponent },
+  { path: "regulations", component: RegulationsComponent },
+  { path: "faq", component: FaqComponent },
 ]
 
 @NgModule({
