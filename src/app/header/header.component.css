@@ -1,15 +1,36 @@
+.navbar {
+    font-weight: bold;
+}
+.btn {
+    font-weight: bold;
+}
+
 @media (min-width: 768px){
-    .navbar-nav {
-        padding-left: 2.5rem;
-    }
     .nav-item {
         margin-left: 1.5rem;
     }
 }
 
 @media (max-width: 767px) {
+    .navbar-nav {
+        width: 100%;
+        text-align: center;
+        font-size: x-large;
+    }
+    .btn {
+        font-size: x-large;
+        margin-bottom: 2rem;
+
+    }
+    
+    .nav-item:nth-child(6){
+        margin-bottom: 2rem;
+    }
+
     .order-box {
         justify-content: center !important;
         width: 100%;
     }
+
 }
+
