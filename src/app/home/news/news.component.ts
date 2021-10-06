@@ -6,9 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./news.component.css']
 })
 export class NewsComponent implements OnInit {
-  sliders: { sliderNumber: number, routing: string, imgUrl: string, alt: string, text: string }[]
-  actualSlider: number = 0
-  totalSliders: number = 4
+  sliders: { sliderNumber: number, routing: string, imgUrl: string, alt: string, text: string }[];
+  actualSlider: number = 0;
+  totalSliders: number = 4;
 
   constructor() {
     this.sliders = [
