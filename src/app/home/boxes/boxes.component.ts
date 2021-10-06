@@ -6,11 +6,11 @@ import { Component, OnInit } from '@angular/core';
 	styleUrls: ['./boxes.component.css']
 })
 export class BoxesComponent implements OnInit {
-	boxesArray: { id: number, routerLink: string, name: string, imgSrc: string }[] = [
-		{ id: 0, routerLink: "", name: "Menu", imgSrc: "https://d194ip2226q57d.cloudfront.net/images/Cheap-Eats_Lucky-Tiger_By-Brandon-.06f8d541.fill-500x300.jpg" },
-		{ id: 1, routerLink: "promotional-sets", name: "Promotional sets", imgSrc: "https://d194ip2226q57d.cloudfront.net/images/Cheap-Eats_Lucky-Tiger_By-Brandon-.06f8d541.fill-500x300.jpg" },
-		{ id: 2, routerLink: "get-job", name: "Join to us!", imgSrc: "https://d194ip2226q57d.cloudfront.net/images/Cheap-Eats_Lucky-Tiger_By-Brandon-.06f8d541.fill-500x300.jpg" },
-		{ id: 3, routerLink: "socials", name: "Socials", imgSrc: "https://d194ip2226q57d.cloudfront.net/images/Cheap-Eats_Lucky-Tiger_By-Brandon-.06f8d541.fill-500x300.jpg" }
+	boxesArray: { id: number, routerLink: string, name: string, text: string, background: string, isImage: boolean }[] = [
+		{ id: 0, routerLink: "", name: "Menu", text: "", background: "https://d194ip2226q57d.cloudfront.net/images/Cheap-Eats_Lucky-Tiger_By-Brandon-.06f8d541.fill-500x300.jpg", isImage: true },
+		{ id: 1, routerLink: "promotional-sets", text: "", name: "Promotional sets", background: "https://d194ip2226q57d.cloudfront.net/images/Cheap-Eats_Lucky-Tiger_By-Brandon-.06f8d541.fill-500x300.jpg", isImage: false },
+		{ id: 2, routerLink: "get-job", text: "", name: "Join to us!", background: "https://d194ip2226q57d.cloudfront.net/images/Cheap-Eats_Lucky-Tiger_By-Brandon-.06f8d541.fill-500x300.jpg", isImage: true },
+		{ id: 3, routerLink: "socials", text: "", name: "Socials", background: "https://d194ip2226q57d.cloudfront.net/images/Cheap-Eats_Lucky-Tiger_By-Brandon-.06f8d541.fill-500x300.jpg", isImage: false }
 	]
 	constructor() { }
 

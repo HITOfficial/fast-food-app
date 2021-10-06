@@ -6,7 +6,7 @@ import { Component, Input, OnInit } from '@angular/core';
 	styleUrls: ['./box.component.css']
 })
 export class BoxComponent implements OnInit {
-	@Input('boxData') data: { id: number, routerLink: string, name: string, imgSrc: string };
+	@Input('boxData') data: { id: number, routerLink: string, name: string, text: string, background: string, isImage: boolean };
 	ass: string = "element"
 	constructor() { }
 

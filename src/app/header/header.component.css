@@ -3,6 +3,7 @@
 }
 .btn {
     font-weight: bold;
+    border-radius: 200px;
 }
 
 .navbar-toggler {

@@ -1,0 +1,25 @@
+a{
+    background-color: black;
+}
+
+.click-news {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -25px 0 0 -100px;
+    width: 200px;
+    height: 50px;
+    text-align: center;
+    visibility: hidden;
+    border-radius: 200px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+img:hover ~ .click-news {
+    visibility: visible;
+}
+
+img:hover {
+    opacity: .8;
+}
