@@ -25,6 +25,9 @@ import { RegulationsComponent } from './regulations/regulations.component';
 import { ContactComponent } from './contact/contact.component';
 import { FaqComponent } from './faq/faq.component';
 import { OrderNowComponent } from './order-now/order-now.component';
+import { SliderComponent } from './home/news/slider/slider.component';
+import { ChangeSliderComponent } from './home/news/change-slider/change-slider.component';
+import { SliderBarComponent } from './home/news/slider/slider-bar/slider-bar.component';
 
 
 const routes: Routes = [
@@ -64,6 +67,9 @@ const routes: Routes = [
     FaqComponent,
     SocialsBoxComponent,
     OrderNowComponent,
+    SliderComponent,
+    ChangeSliderComponent,
+    SliderBarComponent,
   ],
   imports: [
     BrowserModule,

@@ -5,9 +5,21 @@
     font-weight: bold;
 }
 
+.navbar-toggler {
+    padding: 1rem 1.25rem;
+    font-size: 1.5rem;
+    line-height: 1;
+    background-color: transparent;
+    border: 3px solid transparent;
+}
+
+
 @media (min-width: 768px){
     .nav-item {
         margin-left: 1.5rem;
+    }
+    hr {
+        display: none;
     }
 }
 
