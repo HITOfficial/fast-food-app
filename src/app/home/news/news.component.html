@@ -1,5 +1,4 @@
 <div class="news col-xs-12 bg-primary p-0 m-0 w-100 h-75" style="background-image: url('https://www.eurofinsfoodtesting.com/uploads/service/istock-472172087.b47b87.jpg');">
-    <app-slider></app-slider>
     <app-change-slider
     	[direction]="'right'"
 			(changingDirection)="onSliderChange($event)"
@@ -13,4 +12,11 @@
 			(changingDirection)="onSliderChange($event)"
     	>
     </app-change-slider>
+		<app-slider
+			[imgUrl]="sliders[actualSlider].imgUrl"
+			[text]="sliders[actualSlider].text"
+			[alt]="sliders[actualSlider].alt"
+			[routing]="sliders[actualSlider].routing"
+			>
+		</app-slider>
 </div>
