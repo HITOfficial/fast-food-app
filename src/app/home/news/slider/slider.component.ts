@@ -8,7 +8,6 @@ import { Component, OnInit, Input } from '@angular/core';
 export class SliderComponent implements OnInit {
   @Input("imgUrl") url: string;
   @Input() alt: string;
-  @Input() text: string;
   @Input() routing: string;
   constructor() { }
 

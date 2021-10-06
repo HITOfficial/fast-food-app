@@ -8,10 +8,22 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 export class ChangeSliderComponent implements OnInit {
   @Output() changingDirection = new EventEmitter<string>();
   @Input() direction: string;
+  arrowImage: string;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
+
+  }
+
+  createArrow() {
+    if (this.direction == "left") {
+      return "<"
+    }
+    else {
+      return ">"
+    }
   }
   // emiting changing direction
   onSliderChange() {

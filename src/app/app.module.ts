@@ -28,6 +28,7 @@ import { OrderNowComponent } from './order-now/order-now.component';
 import { SliderComponent } from './home/news/slider/slider.component';
 import { ChangeSliderComponent } from './home/news/change-slider/change-slider.component';
 import { SliderBarComponent } from './home/news/slider/slider-bar/slider-bar.component';
+import { SliderTextComponent } from './home/news/slider-text/slider-text.component';
 
 
 const routes: Routes = [
@@ -70,6 +71,7 @@ const routes: Routes = [
     SliderComponent,
     ChangeSliderComponent,
     SliderBarComponent,
+    SliderTextComponent,
   ],
   imports: [
     BrowserModule,
