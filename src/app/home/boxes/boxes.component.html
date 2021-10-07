@@ -1,8 +1,10 @@
-<div class="boxes-news">
-        <app-box
-                class="col-sm-12 col-md-6 d-inline-block bg-primary"
-                *ngFor="let boxData of boxesArray "
-                [boxData]="boxData"
-        >
-        </app-box>
+<div class="container-fluid boxes-news d-inline-block">
+	<div class="row g-0">
+		<app-box
+			class="col-xs-12 col-md-6 bg-primary"
+			*ngFor="let boxData of boxesArray "
+			[boxData]="boxData"
+		>
+		</app-box>
+	</div>
 </div>
