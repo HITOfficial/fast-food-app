@@ -30,6 +30,7 @@ import { ChangeSliderComponent } from './home/news/change-slider/change-slider.c
 import { SliderTextComponent } from './home/news/slider-text/slider-text.component';
 import { SeparatorComponent } from './home/separator/separator.component';
 import { SliderListComponent } from './home/news/slider-list/slider-list.component';
+import { SliderElementComponent } from './home/news/slider-list/slider-element/slider-element.component';
 
 
 const routes: Routes = [
@@ -74,6 +75,7 @@ const routes: Routes = [
     SliderTextComponent,
     SeparatorComponent,
     SliderListComponent,
+    SliderElementComponent,
   ],
   imports: [
     BrowserModule,

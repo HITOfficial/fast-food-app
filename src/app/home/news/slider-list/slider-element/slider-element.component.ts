@@ -1,0 +1,15 @@
+import { Component, Input, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-slider-element',
+  templateUrl: './slider-element.component.html',
+  styleUrls: ['./slider-element.component.css']
+})
+export class SliderElementComponent implements OnInit {
+  @Input() slider: { sliderNumber: number, routing: string, imgUrl: string, alt: string, text: string }
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+}

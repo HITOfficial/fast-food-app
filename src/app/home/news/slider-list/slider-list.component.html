@@ -1,6 +1,21 @@
 <ul class="slider-list-container list-unstyled">
-    <li class="slider-element mb-3 bg-warning"></li>
-    <li class="slider-element mb-3 bg-warning"></li>
-    <li class="slider-element mb-3 bg-warning"></li>
-    <li class="slider-element mb-3 bg-warning"></li>
+    <span
+        *ngFor="let slider of sliders; let i = index"
+        class="d-flex mb-2 rotate-n-45"
+        >
+        <app-slider-element
+        *ngIf="actualSlider === i; else anotherSlider"
+        [slider]="slider"
+        class="bg-light mb-1"
+        >
+        </app-slider-element>
+        <ng-template #anotherSlider>
+            <app-slider-element
+                [slider]="slider"
+                class="bg-warning mb-1"
+                >
+            </app-slider-element>
+        </ng-template>
+    </span>
+    
 <ul>
