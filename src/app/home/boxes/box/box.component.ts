@@ -13,5 +13,4 @@ export class BoxComponent implements OnInit {
 	ngOnInit(): void {
 		setTimeout(() => console.log(this.data), 200)
 	}
-
 }
