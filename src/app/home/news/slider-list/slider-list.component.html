@@ -5,17 +5,20 @@
         >
         <app-slider-element
         *ngIf="actualSlider === i; else anotherSlider"
-        [slider]="slider"
         class="bg-light mb-1"
+        [slider]="slider"
+        (newSliderData)="getNewSlider($event)"
         >
         </app-slider-element>
         <ng-template #anotherSlider>
             <app-slider-element
                 [slider]="slider"
                 class="bg-warning mb-1"
+                (newSliderNumber)="getNewSlider($event)"
                 >
             </app-slider-element>
         </ng-template>
     </span>
     
 <ul>
+

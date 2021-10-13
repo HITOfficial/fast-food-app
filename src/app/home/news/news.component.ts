@@ -38,4 +38,8 @@ export class NewsComponent implements OnInit {
     }
   }
 
+  newSliderElement(newSlider: number) {
+    this.actualSlider = newSlider;
+  }
+
 }

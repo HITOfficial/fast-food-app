@@ -10,9 +10,9 @@
 		</app-slider-text>
 		<div class="col-sm-2 col-md-1 d-flex justify-content-start bg-warning">
 			<app-change-slider
-    	[direction]="'left'"
-			(changingDirection)="onSliderChange($event)"
-      >
+    			[direction]="'left'"
+				(changingDirection)="onSliderChange($event)"
+      		>
 			</app-change-slider>
 			<app-change-slider
 				[direction]="'right'"
@@ -33,7 +33,9 @@
 			style="right: 1%; top: 15%;"
 			[sliders]="sliders"
 			[actualSlider]="actualSlider"
+			(newSlider)="newSliderElement($event)"
 			>
+
 			</app-slider-list>
 		<div class="bordered-top bg-light"></div>
 	</div>
