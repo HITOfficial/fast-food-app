@@ -8,12 +8,6 @@ import { Component, Input, OnInit } from '@angular/core';
 export class MenuProductsComponent implements OnInit {
   @Input("menuData") Products: unknown
   constructor() { }
-  dataConvert(data: any) {
-    return data.map(() => {
-
-    })
-
-  }
 
   ngOnInit(): void {
   }

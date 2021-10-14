@@ -1,5 +1,4 @@
-p {
-    width: 100px;
-    height: 100px;
-    background: #000;
+.background-image {
+    width: 320px;
+    height: 320px;
 }
