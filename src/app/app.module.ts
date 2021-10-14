@@ -31,9 +31,12 @@ import { SliderTextComponent } from './home/news/slider-text/slider-text.compone
 import { SeparatorComponent } from './home/separator/separator.component';
 import { SliderListComponent } from './home/news/slider-list/slider-list.component';
 import { SliderElementComponent } from './home/news/slider-list/slider-element/slider-element.component';
-import { MenuBlockComponent } from './menu/menu-block/menu-block.component';
-import { MenuHeaderComponent } from './menu/menu-block/menu-header/menu-header.component';
-import { MenuHeaderElementComponent } from './menu/menu-block/menu-header/menu-header-element/menu-header-element.component';
+import { MenuCategoriesComponent } from './menu/menu-categories/menu-categories.component';
+import { MenuHeaderComponent } from './menu/menu-categories/menu-header/menu-header.component';
+import { MenuHeaderElementComponent } from './menu/menu-categories/menu-header/menu-header-element/menu-header-element.component';
+import { MenuProductsComponent } from './menu/menu-products/menu-products.component';
+import { CategoryHeaderComponent } from './menu/menu-products/category-header/category-header.component';
+import { ProductBoxComponent } from './menu/menu-products/product-box/product-box.component';
 
 
 const routes: Routes = [
@@ -79,9 +82,12 @@ const routes: Routes = [
     SeparatorComponent,
     SliderListComponent,
     SliderElementComponent,
-    MenuBlockComponent,
+    MenuCategoriesComponent,
     MenuHeaderComponent,
     MenuHeaderElementComponent,
+    MenuProductsComponent,
+    CategoryHeaderComponent,
+    ProductBoxComponent,
   ],
   imports: [
     BrowserModule,

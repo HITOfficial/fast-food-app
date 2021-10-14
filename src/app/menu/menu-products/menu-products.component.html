@@ -1,0 +1,16 @@
+<p>menu-products works!</p>
+<div
+    class="category"
+    *ngFor="let productList of Products | keyvalue"
+    >
+    <app-category-header
+        [categoryName]="productList.key"
+        >
+    </app-category-header>
+    <div
+        *ngFor="let product of productList.value"
+        >
+        <app-product-box>
+        </app-product-box>
+    </div>
+</div>

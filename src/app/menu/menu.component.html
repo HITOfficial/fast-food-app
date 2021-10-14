@@ -8,6 +8,15 @@
             <div class="add-oppacity">
             </div>
         </div>
-        <app-menu-block class="w-100"></app-menu-block>
+        <app-menu-categories
+            class="w-100"
+            [menuData]="menuData"
+            >
+        </app-menu-categories>
+        <app-menu-products
+            class="w-100"
+            [menuData]="menuData"
+            >
+        </app-menu-products>
     </div>
 </div>

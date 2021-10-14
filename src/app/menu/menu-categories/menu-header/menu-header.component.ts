@@ -6,7 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./menu-header.component.css']
 })
 export class MenuHeaderComponent implements OnInit {
-  @Input() menuData: any;
+  @Input() menuData: unknown;
 
   constructor() { }
 
