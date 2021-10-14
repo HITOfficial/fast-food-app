@@ -1,0 +1,13 @@
+.t-a-end {
+    text-align: end;
+}
+
+.pr-1 {
+    padding-right: 1rem;
+}
+
+@media (max-width: 767px) {
+    .author-class {
+        display: none !important;
+    }
+}

@@ -1,0 +1,30 @@
+<div *ngIf="data.isImage; else backgroundColor" routerLinkActive="active"
+	class="w-100 text-center text-light box"
+	style="background-image: url('{{data.background}}');"
+	>
+	<h1 class="">{{data.header}}</h1>
+	<span class="pt-3 ">{{data.text}}</span>
+	<div>
+	<button routerLink="{{data.routerLink}}" type="button" class="btn btn-warning mt-4">{{data.buttonText}}</button>
+	</div>
+</div>
+
+
+<ng-template #backgroundColor>
+	<div routerLinkActive="active"
+		class="w-100 text-center text-light box"
+		style="background-color: {{data.background}}; color:{{data.textColor}}"
+		>
+		<h1 style="color:{{data.textColor}}">{{data.header}}</h1>
+		<span class="pt-3" style="color:{{data.textColor}}">{{data.text}}</span>
+		<div>
+		<button
+			routerLink="{{data.routerLink}}"
+			type="button"
+			class="btn mt-4"
+			style="background:{{data.buttonColor}};">
+			{{data.buttonText}}
+			</button>
+		</div>
+	</div>
+</ng-template>

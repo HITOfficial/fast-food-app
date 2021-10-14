@@ -1,0 +1,46 @@
+<header class="row gx-0">
+	<nav class="navbar navbar-light navbar-expand-md">
+        <!-- navbar-toggler class hides element in resolution highter than navbar-expand-->        
+        <button        
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#togglemenu"
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse col-md-12" id="togglemenu">
+           <ul class="col-xs-12 col-sm-5 col-md-7 navbar-nav">
+                <li routerLinkActive="active" class="nav-item col-xs-12">
+                    <a class="nav-link text-black" href=""> Home </a>
+                    <hr>
+                </li>
+                <li routerLinkActive="active" class="nav-item">
+                    <a class="nav-link text-black" routerLink="/menu"> Menu </a>
+                    <hr>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-black" routerLink="/promotional-sets"> Promotional Sets </a>
+                    <hr>
+                </li>
+                <li routerLinkActive="active" class="nav-item">
+                    <a class="nav-link text-black" routerLink="/get-job"> Get Job </a>
+                    <hr>
+                </li>
+                <li routerLinkActive="active" class="nav-item">
+                    <a class="nav-link text-black" routerLink="/shopping-bin"> Shopping Bin </a>
+                    <hr>
+                </li>
+                 <li routerLinkActive="active" class="nav-item">
+                    <a class="nav-link text-black" routerLink="/socials"> Socials </a>
+                </li> 
+            </ul>
+            <div class="order-box col-xs-12 col-md-4 col-sm-3 d-flex justify-content-end">
+                <button routerLinkActive="active" routerLink="/order-now" type="button" class=" btn btn-warning mr-3 text-uppercase text-bold">
+                    <span class="text-dark">Order now!</span>
+                </button>
+            </div>
+            
+        </div>
+	</nav>
+</header>

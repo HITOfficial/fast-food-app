@@ -1,0 +1,43 @@
+<div class="news col-xs-12 bg-primary p-0 m-0 w-100 h-75 bg-light">
+	<div class="w-100 d-flex">
+		<app-slider-text
+			class="col-sm-10 col-md-11"
+			[text]="sliders[actualSlider].text">
+			<strong>
+				{{actualSlider}}
+			</strong>
+		 >
+		</app-slider-text>
+		<div class="col-sm-2 col-md-1 d-flex justify-content-start bg-warning">
+			<app-change-slider
+    			[direction]="'left'"
+				(changingDirection)="onSliderChange($event)"
+      		>
+			</app-change-slider>
+			<app-change-slider
+				[direction]="'right'"
+				(changingDirection)="onSliderChange($event)"
+				>
+			</app-change-slider>
+		</div>
+	</div>
+	<div class="position-relative">
+		<app-slider class="h-100"
+			[imgUrl]="sliders[actualSlider].imgUrl"
+			[alt]="sliders[actualSlider].alt"
+			[routing]="sliders[actualSlider].routing"
+			>
+		</app-slider>
+		<app-slider-list
+			class="position-absolute"
+			style="right: 1%; top: 15%;"
+			[sliders]="sliders"
+			[actualSlider]="actualSlider"
+			(newSlider)="newSliderElement($event)"
+			>
+
+			</app-slider-list>
+		<div class="bordered-top bg-light"></div>
+	</div>
+		
+</div>

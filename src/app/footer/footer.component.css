@@ -1,0 +1,13 @@
+.info-text {
+    font-size: xx-small;
+}
+
+.small {
+    font-size: small;
+}
+
+@media (max-width:767px){
+    .small {
+        font-size: large;
+    }
+}
