@@ -31,6 +31,9 @@ import { SliderTextComponent } from './home/news/slider-text/slider-text.compone
 import { SeparatorComponent } from './home/separator/separator.component';
 import { SliderListComponent } from './home/news/slider-list/slider-list.component';
 import { SliderElementComponent } from './home/news/slider-list/slider-element/slider-element.component';
+import { MenuBlockComponent } from './menu/menu-block/menu-block.component';
+import { MenuHeaderComponent } from './menu/menu-block/menu-header/menu-header.component';
+import { MenuHeaderElementComponent } from './menu/menu-block/menu-header/menu-header-element/menu-header-element.component';
 
 
 const routes: Routes = [
@@ -76,6 +79,9 @@ const routes: Routes = [
     SeparatorComponent,
     SliderListComponent,
     SliderElementComponent,
+    MenuBlockComponent,
+    MenuHeaderComponent,
+    MenuHeaderElementComponent,
   ],
   imports: [
     BrowserModule,

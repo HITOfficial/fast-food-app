@@ -10,10 +10,6 @@ export class BoxComponent implements OnInit {
 	constructor() { }
 
 	ngOnInit(): void {
-<<<<<<< HEAD
-=======
-		setTimeout(() => console.log(this.data), 200)
->>>>>>> 515d73dff70f6dad487b1b9a1c4b5ae674a64ae4
 	}
 
 

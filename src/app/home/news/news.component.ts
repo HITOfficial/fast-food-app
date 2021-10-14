@@ -9,10 +9,7 @@ export class NewsComponent implements OnInit {
   sliders: { sliderNumber: number, routing: string, imgUrl: string, alt: string, text: string }[];
   actualSlider: number = 0;
   totalSliders: number = 4;
-<<<<<<< HEAD
   currDateTime: number = new Date().getTime();
-=======
->>>>>>> 515d73dff70f6dad487b1b9a1c4b5ae674a64ae4
 
   constructor() {
     this.sliders = [
@@ -24,10 +21,7 @@ export class NewsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-<<<<<<< HEAD
     setInterval(this.checkDateTime.bind(this), 1000);
-=======
->>>>>>> 515d73dff70f6dad487b1b9a1c4b5ae674a64ae4
   }
 
   onSliderChange(sliderChangeDirection: string) {
@@ -48,7 +42,6 @@ export class NewsComponent implements OnInit {
 
   newSliderElement(newSlider: number) {
     this.actualSlider = newSlider;
-<<<<<<< HEAD
     // reseting date time after manual image change
     this.updateDateTime()
   }
@@ -64,8 +57,6 @@ export class NewsComponent implements OnInit {
       // changing actual slider image
       this.onSliderChange("right")
     }
-=======
->>>>>>> 515d73dff70f6dad487b1b9a1c4b5ae674a64ae4
   }
 
 }
