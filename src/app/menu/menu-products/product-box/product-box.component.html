@@ -1,5 +1,29 @@
 <div
-    class="background-image"
+    class="background-image position-relative"
     style="background-image: url('{{product.productImage}}');
-        background-size: contain;">
+        background-size: contain;"
+    (click)="active=!active"
+    >
+    <div *ngIf="active; else showDetails"
+        class="see-details text-center w-100 h-100 f-500"
+    >
+        <p class="pt-5">
+            <strong>description: </strong> {{product.description}}
+        </p>
+        <p>
+            <strong>ingredients: </strong>{{product.ingredients}}
+        </p>
+        <p>
+        <strong>calories:</strong> {{product.calories}}
+        </p>
+    </div>
+    <ng-template #showDetails>
+        <div class="show-details">
+            <button class="btn btn-warning button-click">
+             show details
+            </button>
+        </div>
+    </ng-template>
+        
+
 </div>

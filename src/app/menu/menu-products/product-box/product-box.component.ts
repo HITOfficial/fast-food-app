@@ -6,7 +6,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./product-box.component.css']
 })
 export class ProductBoxComponent implements OnInit {
-  xdata: number = 16
+  active: boolean = false;
   @Input() product: { productId: number, productImage: string, productCategory: string, description: string, ingredients: string, calories: number };
   constructor() { }
 
