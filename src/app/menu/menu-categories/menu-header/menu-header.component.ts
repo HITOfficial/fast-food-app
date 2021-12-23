@@ -6,7 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./menu-header.component.css']
 })
 export class MenuHeaderComponent implements OnInit {
-  @Input() menuData: unknown;
+  @Input() categories: any;
   @Input() activeCategories: unknown;
 
   constructor() { }
@@ -14,7 +14,7 @@ export class MenuHeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  toggleCategory(category: string) {
+  toggleCategory(category: any) {
     this.activeCategories[category] = !this.activeCategories[category];
   }
 

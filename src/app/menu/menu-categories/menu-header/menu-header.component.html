@@ -7,10 +7,10 @@
         </app-menu-header-element>
     </li>
     <li
-        *ngFor="let data of menuData | keyvalue">
+        *ngFor="let data of categories | keyvalue">
             <app-menu-header-element
-                (click)="toggleCategory(data.key)"
-                [headerName]="data.key"
+                (click)="toggleCategory(data.value)"
+                [headerName]="data.value"
                 >
             </app-menu-header-element>
     </li>

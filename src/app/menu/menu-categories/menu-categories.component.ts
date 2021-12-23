@@ -6,13 +6,9 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./menu-categories.component.css']
 })
 export class MenuCategoriesComponent implements OnInit {
-  @Input() menuData: unknown;
+  @Input() categories: unknown;
   @Input() activeCategories: unknown;
 
-
-  toggleCategory(category: string) {
-
-  }
 
   constructor() { }
 

@@ -6,7 +6,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./menu-products.component.css']
 })
 export class MenuProductsComponent implements OnInit {
-  @Input("menuData") Products: unknown
+  @Input("menuData") products: any;
   @Input() activeCategories: unknown;
 
   constructor() { }
