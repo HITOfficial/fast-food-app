@@ -1,13 +1,14 @@
 <div
-    class="background-image position-relative"
+    [ngClass]="{'orange-box-shadow': remaining <= product.quantity*0.4,'red-box-shadow': remaining == 0 }"
+    class="background-image position-relative mb-5"
     style="background-image: url('{{product.productImage}}');
         background-size: contain;"
     (click)="active=!active"
     >
-    <div *ngIf="active; else showDetails"
+    <div
         class="see-details text-center w-100 h-100 f-500"
     >
-        <p class="pt-5">
+        <p class="pt-4">
             <strong>description: </strong> {{product.description}}
         </p>
         <p>
@@ -16,14 +17,28 @@
         <p>
         <strong>calories:</strong> {{product.calories}}
         </p>
-    </div>
-    <ng-template #showDetails>
-        <div class="show-details">
-            <button class="btn btn-warning button-click">
-             show details
-            </button>
+        <div class="buttons">
+            <div class="buttons-box">
+                <ng-container *ngIf="remaining > 0">
+                    <app-product-increment
+                        (click)="addEvent()"
+                        >
+                    </app-product-increment>
+                </ng-container>
+                <ng-container *ngIf="remaining < product.quantity">
+                    <app-product-reduce
+                        (click)="reduceEvent()"
+                        >
+                    </app-product-reduce>
+                </ng-container>
+            </div>
         </div>
-    </ng-template>
+        <p>{{remaining}}</p>
+        <app-product-reset
+            (click)="resetEvent()"
+            >
+    </app-product-reset>
+    </div>
         
 
 </div>

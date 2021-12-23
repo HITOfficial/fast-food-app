@@ -1,21 +1,19 @@
 <div class="container-fluid">
         <div
-        class="category col-xs-12 row"
-        *ngFor="let productList of Products | keyvalue"
+            class="category col-xs-12 row"
+            *ngFor="let productList of Products | keyvalue"
         >
-                <app-category-header
-                    class="col-xs-12"
-                    [categoryName]="productList.key"
-                    >
-                </app-category-header>
-            <div
-                *ngFor="let product of productList.value"
-                class="col-xs-6 col md-6 col-lg-4 col-xl-3 col-xxl-2 mb-5"
-                >
+        <div
+            *ngFor="let product of productList.value"
+            class="col-xs-6 col md-6 col-lg-4 col-xl-3 col-xxl-2"
+        >
+            <ng-container *ngIf="activeCategories[product.productCategory]">
                 <app-product-box
                 [product]="product"
                 >
                 </app-product-box>
-            </div>
+            </ng-container>
+        </div>
+            
         </div>
 </div>

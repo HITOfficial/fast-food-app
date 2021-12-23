@@ -1,33 +1,28 @@
 .background-image {
-    width: 250px;
-    height: 250px;
+    width: 300px;
+    height: 300px;
     cursor: pointer;
 }
-.show-details{
-    display: none;
+
+.buttons {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 1rem 0;
 }
 
-.background-image:hover .show-details {
-    display: block;
-    position: absolute;
-    width: 250px;
-    height: 250px;
-}
-
-.button-click {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-left: -60px;
-    margin-top: -20px;
-    border-radius: 200px;
+.buttons-box {
+    width: 30%;
+    display: flex;
+    justify-content: space-around;
 }
 
 
-.see-details {
-    position: absolute;
-    width: 250px;
-    height: 250px;
-    background-color: #ffc107;
-    opacity: 1;
+
+.orange-box-shadow {
+    box-shadow: 0px 0px 11px 1px rgb(255, 187, 0);
+}
+
+.red-box-shadow {
+    box-shadow: 0px 0px 11px 1px rgb(255, 0, 0);
 }

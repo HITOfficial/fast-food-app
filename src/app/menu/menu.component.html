@@ -3,7 +3,6 @@
         <div class="page-name-header c-xs-12 d-flex justify-content-center align-items-center position-relative text-light" style="background-image: url('https://www.priorymeadow.com/wp-content/uploads/2017/04/food-2560x400.jpg')">
             <h1>Menu</h1>
             <div class="border-top bg-light">
-                XX
             </div>
             <div class="add-oppacity">
             </div>
@@ -11,11 +10,13 @@
         <app-menu-categories
             class="w-100"
             [menuData]="menuData"
+            [activeCategories]="activeCategories"
             >
         </app-menu-categories>
         <app-menu-products
             class="w-100"
             [menuData]="menuData"
+            [activeCategories]="activeCategories"
             >
         </app-menu-products>
     </div>

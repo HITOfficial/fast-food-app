@@ -7,6 +7,8 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class MenuProductsComponent implements OnInit {
   @Input("menuData") Products: unknown
+  @Input() activeCategories: unknown;
+
   constructor() { }
 
   ngOnInit(): void {

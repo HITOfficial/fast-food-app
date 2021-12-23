@@ -1,7 +1,15 @@
 <ul class="list-unstyled d-flex justify-content-around bg-light">
+    <li>
+        <app-menu-header-element
+            [headerName]="'RESET'"
+            (click)="resetCategories()"
+            >
+        </app-menu-header-element>
+    </li>
     <li
         *ngFor="let data of menuData | keyvalue">
             <app-menu-header-element
+                (click)="toggleCategory(data.key)"
                 [headerName]="data.key"
                 >
             </app-menu-header-element>

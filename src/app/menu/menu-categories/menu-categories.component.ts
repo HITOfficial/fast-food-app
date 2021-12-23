@@ -7,6 +7,12 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class MenuCategoriesComponent implements OnInit {
   @Input() menuData: unknown;
+  @Input() activeCategories: unknown;
+
+
+  toggleCategory(category: string) {
+
+  }
 
   constructor() { }
 

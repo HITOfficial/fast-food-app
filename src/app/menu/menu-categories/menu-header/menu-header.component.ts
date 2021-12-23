@@ -7,10 +7,21 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class MenuHeaderComponent implements OnInit {
   @Input() menuData: unknown;
+  @Input() activeCategories: unknown;
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  toggleCategory(category: string) {
+    this.activeCategories[category] = !this.activeCategories[category];
+  }
+
+  resetCategories() {
+    Object.keys(this.activeCategories).forEach(key => {
+      this.activeCategories[key] = true;
+    })
   }
 
 }
