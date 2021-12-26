@@ -7,6 +7,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class MenuHeaderElementComponent implements OnInit {
   @Input() headerName: any;
+  @Input() activeCategories: any;
 
   constructor() { }
 

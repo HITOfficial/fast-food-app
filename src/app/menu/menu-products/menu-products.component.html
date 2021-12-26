@@ -1,14 +1,38 @@
-<div class="container-fluid col-xs-12 row d-flex justify-content-center">
+<div 
+    class="container-fluid col-xs-12 row d-flex">
+    <div class="order-by-price-container p-2">
+        <label class="min-price label-price">
+                <p>MIN PRICE</p>
+                <input type="number" min={{minPrice}} max={{maxPrice}} value={{minPrice}} class ="min-price-btn">
+        </label>
+        <label class="max-price">
+            <p>MAX PRICE</p>
+            <input type="number" min={{minPrice}} max={{maxPrice}} value={{maxPrice}} class="max-price-btn">
+        </label>
+        <button type="button" 
+            class="btn bg-warning btn-border-radius-200 mt-2 text-white"
+            (click)="priceFilter()"
+    >
+    FILTER
+</button>
+
+    </div>
+    <ng-container
+        *ngFor="let product of products"
+        >
         <div
-            *ngFor="let product of products"
-            class="col-xs-6 col md-6 col-lg-4 col-xl-3 col-xxl-2"
+            *ngIf="activeCategories[product.productCategory] && checkIfPriceBetween(product.price)"
+            class="col-xs-6 col md-6 col-lg-4 col-xl-3"
             >
-            <ng-container *ngIf="activeCategories[product.productCategory]">
                 <app-product-box
+                    [maxPrice]="maxPrice"
+                    [minPrice]="minPrice"
                     [product]="product"
                 >
                 </app-product-box>
-            </ng-container>
         </div>
+    </ng-container>
+        {{maxPrice}}
+        {{minPrice}}
             
 </div>

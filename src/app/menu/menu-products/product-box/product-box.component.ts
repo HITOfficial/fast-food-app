@@ -8,6 +8,8 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ProductBoxComponent implements OnInit {
   active: boolean = false;
   @Input() product: { productId: number, productImage: string, productCategory: string, description: string, ingredients: string, calories: number, quantity: number, price: number };
+  @Input() maxPrice: number;
+  @Input() minPrice: number;
   remaining: number;
   constructor() {
   }

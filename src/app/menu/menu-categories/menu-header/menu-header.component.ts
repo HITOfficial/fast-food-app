@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class MenuHeaderComponent implements OnInit {
   @Input() categories: any;
-  @Input() activeCategories: unknown;
+  @Input() activeCategories: any;
 
   constructor() { }
 

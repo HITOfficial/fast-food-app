@@ -1,3 +1,6 @@
-<button type="button" class="btn bg-warning btn-border-radius-200 mt-2">
+<button type="button" 
+    class="btn bg-warning btn-border-radius-200 mt-2"
+    [ngClass]="{'text-white': headerName === 'RESET' || activeCategories[headerName] === true}"
+    >
     {{headerName}}
 </button>

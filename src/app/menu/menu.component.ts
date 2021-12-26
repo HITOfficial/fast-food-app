@@ -47,7 +47,7 @@ export class MenuComponent implements OnInit {
   activeCategories = {
     news: true,
     burgers: true,
-    chicken: true,
+    chicken: false,
     vege: true,
     sets: true,
     drinks: true,
