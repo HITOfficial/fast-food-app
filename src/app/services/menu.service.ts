@@ -12,7 +12,6 @@ export class MenuService {
     this.menuProductsDb = db.list('menu');
     this.menuProductsDb.valueChanges().subscribe(x => {
       this.menuProducts = x;
-      console.log(this.menuProducts);
     });
   }
 
