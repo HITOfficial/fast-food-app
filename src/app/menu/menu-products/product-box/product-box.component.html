@@ -1,5 +1,5 @@
 <div
-    [ngClass]="{'orange-box-shadow': remaining <= 3,'red-box-shadow': remaining == 0,'highest-price-box-shadow': product.price === maxPrice, 'lowest-price-box-shadow': product.price ===minPrice}"
+    [ngClass]="{'orange-box-shadow': remaining <= 3,'blue-box-shadow': remaining == 0,'highest-price-box-shadow': product.price === maxPrice, 'lowest-price-box-shadow': product.price ===minPrice}"
     class="background-image position-relative mb-5"
     style="background-image: url('{{product.productImage}}');
         background-size: contain;"
@@ -9,13 +9,16 @@
         class="see-details text-center w-100 h-100 f-500"
     >
         <p class="pt-1">
-            <strong>description: </strong> {{product.description}}
+            <strong>description: </strong> {{product.description}} 
+            <button type="button"
+                class="btn bg-warning remove mt-1"
+                (click)="remove()"
+                >
+                x
+            </button>
         </p>
         <p>
-            <strong>ingredients: </strong>{{product.ingredients}}
-        </p>
-        <p>
-        <strong>calories:</strong> {{product.calories}}
+        <strong>Category:</strong> {{product.productCategory}}
         </p>
         <p> <strong>Price: </strong>
             {{product.price}}

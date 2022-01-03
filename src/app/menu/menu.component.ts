@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAction, AngularFireList } from '@angular/fire/compat/database';
+import { Observable } from 'rxjs';
+import { MenuProduct } from '../models/menu-product';
+import { ItemService } from '../services/item.service';
+
 
 @Component({
   selector: 'app-menu',
@@ -65,13 +70,20 @@ export class MenuComponent implements OnInit {
   }
 
 
-
-  constructor() {
-
+  constructor(public itemService: ItemService) {
   }
 
+
+
+
   ngOnInit(): void {
+    this.itemService.getMenuProducts().subscribe(product => {
+      console.log(product)
+    })
   }
 
 
 }
+
+
+

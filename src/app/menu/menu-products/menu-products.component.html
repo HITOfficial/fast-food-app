@@ -18,7 +18,7 @@
 
     </div>
     <ng-container
-        *ngFor="let product of products"
+        *ngFor="let product of products; let i = index"
         >
         <div
             *ngIf="activeCategories[product.productCategory] && checkIfPriceBetween(product.price)"
@@ -28,11 +28,10 @@
                     [maxPrice]="maxPrice"
                     [minPrice]="minPrice"
                     [product]="product"
+                    [products]="products"
+                    [index]="i"
                 >
                 </app-product-box>
         </div>
     </ng-container>
-        {{maxPrice}}
-        {{minPrice}}
-            
 </div>
