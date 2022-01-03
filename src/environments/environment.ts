@@ -7,6 +7,7 @@ export const environment = {
   firebaseConfig: {
     apiKey: "AIzaSyBZFNj1FAE4OLu0azE7QE9LT3Zhd33TdqY",
     authDomain: "fast-food-app-itwa.firebaseapp.com",
+    databaseURL: "https://fast-food-app-itwa-default-rtdb.europe-west1.firebasedatabase.app",
     projectId: "fast-food-app-itwa",
     storageBucket: "fast-food-app-itwa.appspot.com",
     messagingSenderId: "309439205886",

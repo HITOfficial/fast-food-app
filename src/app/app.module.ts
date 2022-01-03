@@ -39,10 +39,10 @@ import { ProductBoxComponent } from './menu/menu-products/product-box/product-bo
 import { ProductIncrementComponent } from './menu/menu-products/product-box/product-increment/product-increment.component';
 import { ProductReduceComponent } from './menu/menu-products/product-box/product-reduce/product-reduce.component';
 import { ProductResetComponent } from './menu/menu-products/product-box/product-reset/product-reset.component';
-import { ItemService } from './services/item.service';
+import { MenuService } from './services/menu.service';
 
 import { AngularFireModule } from '@angular/fire/compat';
-import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { environment } from 'src/environments/environment';
 
 
@@ -104,10 +104,10 @@ const routes: Routes = [
     AppRoutingModule,
     RouterModule.forRoot(routes),
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFirestoreModule
+    AngularFireDatabaseModule
   ],
 
-  providers: [ItemService],
+  providers: [MenuService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

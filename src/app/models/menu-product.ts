@@ -1,4 +1,4 @@
-export interface MenuProduct {
+export interface IMenuProduct {
     productId?: number,
     productImage?: string,
     productCategory?: string,
