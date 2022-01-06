@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="row g-0 d-flex justify-content-center">
+        <div class="col-sm-6 product-container mt-5 mb-5">
+            <div class="image-container position-relative">
+                <span class="position-absolute go-back" (click)="goToMenu()"><strong>←</strong> Go back</span>
+                <img class="single-image" src="{{product.productImage}}">
+            </div>
+            <div class="product-details w-100">
+                <h2 class="bg-warning text-center text-light product-description">{{product.description}}</h2>
+                <p>Category of product: {{product.productCategory}}</p>
+                <p>Ingredients: {{product.ingredients}}</p>
+                <p>Single product cost: {{product.price}}</p>
+                <p>Still avaiable: {{remaining}}</p>
+                <div class="buttons">
+                    <div class="buttons-box">
+                        <ng-container *ngIf="remaining > 0">
+                            <app-product-increment
+                                (click)="addEvent()"
+                                >
+                            </app-product-increment>
+                        </ng-container>
+                        <ng-container *ngIf="remaining < product.quantity">
+                            <app-product-reduce
+                                (click)="reduceEvent()"
+                                >
+                            </app-product-reduce>
+                        </ng-container>
+                    </div>
+                </div>
+                <div class="buttons">
+                    <app-product-reset
+                        class="margin-0-auto"
+                        (click)="resetEvent()"
+                        >
+                    </app-product-reset>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

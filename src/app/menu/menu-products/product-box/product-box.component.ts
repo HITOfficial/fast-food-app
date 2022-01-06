@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { MenuService } from 'src/app/services/menu.service';
 
 @Component({
   selector: 'app-product-box',
@@ -12,8 +14,10 @@ export class ProductBoxComponent implements OnInit {
   @Input() minPrice: number;
   @Input() products: any;
   @Input() index: number;
+  @Input() menuService: MenuService;
   remaining: number;
-  constructor() {
+
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) {
   }
 
   ngOnInit(): void {
@@ -36,7 +40,11 @@ export class ProductBoxComponent implements OnInit {
   }
 
   remove() {
-    this.products.splice(this.index, 1);
+    this.menuService.deleteProduct(this.product);
+  }
+
+  goToProductDetalis() {
+    this.router.navigate([this.product.productId], { relativeTo: this.activatedRoute, state: { product: this.product, remaining: this.remaining, menuService: this.menuService } })
   }
 
 }

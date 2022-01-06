@@ -19,6 +19,12 @@ export class MenuService {
     this.menuProductsDb.push(product);
   }
 
+  deleteProduct(product: any) {
+    const idx = this.menuProducts.indexOf(product)
+    this.menuProducts.splice(idx, 1);
+    // this.menuProductsDb.remove(product);
+  }
+
   getMenuProducts(): Observable<IMenuProduct>[] {
     return this.menuProducts;
   }

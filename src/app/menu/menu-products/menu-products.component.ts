@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, KeyValueChanges, KeyValueDiffer, KeyValueDiffers } from '@angular/core';
+import { MenuService } from 'src/app/services/menu.service';
 
 @Component({
   selector: 'app-menu-products',
@@ -8,6 +9,8 @@ import { Component, Input, OnInit, KeyValueChanges, KeyValueDiffer, KeyValueDiff
 export class MenuProductsComponent implements OnInit {
   @Input("menuData") products: any;
   @Input() activeCategories: any;
+  @Input() menuService: MenuService;
+
   minPrice: number;
   maxPrice: number;
   minPriceCondition: number = (-1) * Infinity;

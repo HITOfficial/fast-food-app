@@ -45,6 +45,7 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { environment } from 'src/environments/environment';
 import { MapLocationComponent } from './contact/map-location/map-location.component';
+import { ProductDetailsComponent } from './menu/menu-products/product-box/product-details/product-details.component';
 
 
 const routes: Routes = [
@@ -99,6 +100,7 @@ const routes: Routes = [
     ProductReduceComponent,
     ProductResetComponent,
     MapLocationComponent,
+    ProductDetailsComponent,
   ],
 
   imports: [
