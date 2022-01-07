@@ -46,6 +46,10 @@ import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { environment } from 'src/environments/environment';
 import { MapLocationComponent } from './contact/map-location/map-location.component';
 import { ProductDetailsComponent } from './menu/menu-products/product-box/product-details/product-details.component';
+import { ProductOpinionsComponent } from './menu/menu-products/product-box/product-details/product-opinions/product-opinions.component';
+import { ProductRemoveComponent } from './menu/menu-products/product-box/product-remove/product-remove.component';
+import { UserOpinionsComponent } from './menu/menu-products/product-box/product-details/product-opinions/user-opinions/user-opinions.component';
+import { UserOpinionComponent } from './menu/menu-products/product-box/product-details/product-opinions/user-opinions/user-opinion/user-opinion.component';
 
 
 const routes: Routes = [
@@ -101,6 +105,10 @@ const routes: Routes = [
     ProductResetComponent,
     MapLocationComponent,
     ProductDetailsComponent,
+    ProductOpinionsComponent,
+    ProductRemoveComponent,
+    UserOpinionsComponent,
+    UserOpinionComponent,
   ],
 
   imports: [

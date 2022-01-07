@@ -1,0 +1,21 @@
+.opinion-container {
+    margin: 2rem auto 0;
+    box-shadow: 0px 0px 8px 2px rgb(0 0 0 /50%);
+    height: fit-content;
+    width: fit-content;
+    min-width: 500px;
+    padding: 0.5rem;
+}
+
+.user-nickname {
+    font-size: 13px;
+    font-weight: 700;
+    width: 100%;
+    height: fit-content;
+}
+
+.user-opinion {
+    width: 100%;
+    height: fit-content;
+    font-size: 13px;
+}

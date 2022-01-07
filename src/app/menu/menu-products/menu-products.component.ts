@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, KeyValueChanges, KeyValueDiffer, KeyValueDiffers } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MenuService } from 'src/app/services/menu.service';
 
 @Component({
@@ -48,7 +48,6 @@ export class MenuProductsComponent implements OnInit {
   }
 
   ngOnChanges() {
-    console.log("changes");
     this.minMaxPrice();
 
   }

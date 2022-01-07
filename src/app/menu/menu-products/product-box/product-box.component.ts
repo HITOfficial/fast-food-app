@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { IMenuProduct } from 'src/app/models/menu-product';
 import { MenuService } from 'src/app/services/menu.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { MenuService } from 'src/app/services/menu.service';
 })
 export class ProductBoxComponent implements OnInit {
   active: boolean = false;
-  @Input() product: { productId: number, productImage: string, productCategory: string, description: string, ingredients: string, calories: number, quantity: number, price: number };
+  @Input() product: IMenuProduct;
   @Input() maxPrice: number;
   @Input() minPrice: number;
   @Input() products: any;
@@ -40,11 +41,11 @@ export class ProductBoxComponent implements OnInit {
   }
 
   remove() {
-    this.menuService.deleteProduct(this.product);
+    // this.menuService.deleteProduct(this.product);
   }
 
   goToProductDetalis() {
-    this.router.navigate([this.product.productId], { relativeTo: this.activatedRoute, state: { product: this.product, remaining: this.remaining, menuService: this.menuService } })
+    this.router.navigate([this.product.productId], { relativeTo: this.activatedRoute, state: { product: this.product, remaining: this.remaining } })
   }
 
 }

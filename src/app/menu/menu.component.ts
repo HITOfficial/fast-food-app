@@ -41,6 +41,7 @@ export class MenuComponent implements OnInit {
     setTimeout(() => {
       this.isMenuDataLoaded = true;
       this.menuData = this.menuService.getMenuProducts();
+      console.log(this.menuData);
     }, 500)
   }
 

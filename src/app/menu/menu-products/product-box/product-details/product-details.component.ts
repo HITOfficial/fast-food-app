@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { IMenuProduct } from 'src/app/models/menu-product';
+import { IMenuProductOpinion } from 'src/app/models/menu-product-opinion';
 import { MenuService } from 'src/app/services/menu.service';
 
 @Component({
@@ -9,7 +11,7 @@ import { MenuService } from 'src/app/services/menu.service';
 })
 export class ProductDetailsComponent implements OnInit {
 
-  product: { productId: number, productImage: string, productCategory: string, description: string, ingredients: string, calories: number, quantity: number, price: number };
+  product: IMenuProduct;
   remaining: number;
   menuService: MenuService;
 
