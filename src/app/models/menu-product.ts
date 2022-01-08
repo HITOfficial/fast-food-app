@@ -9,7 +9,7 @@ export interface IMenuProduct {
     price?: number,
     opinions?: {
         user?: string,
-        opinion: string
+        opinion?: string
     }[]
     productImages?: string[]
 }

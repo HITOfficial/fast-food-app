@@ -1,4 +1,4 @@
 export interface IMenuProductOpinion {
     user?: string,
-    opinion: string
+    opinion?: string
 }

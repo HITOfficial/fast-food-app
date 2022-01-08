@@ -42,10 +42,13 @@ export class ProductBoxComponent implements OnInit {
 
   remove() {
     // this.menuService.deleteProduct(this.product);
+    console.log("removing");
+    this.menuService.deleteProduct(this.product);
   }
 
   goToProductDetalis() {
-    this.router.navigate([this.product.productId], { relativeTo: this.activatedRoute, state: { product: this.product, remaining: this.remaining } })
+    console.log("to", this.menuService)
+    this.router.navigate([this.product.productId], { relativeTo: this.activatedRoute, state: { menuService: this.menuService, product: this.product, remaining: this.remaining } })
   }
 
 }

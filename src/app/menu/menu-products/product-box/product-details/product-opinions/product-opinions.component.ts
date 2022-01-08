@@ -18,8 +18,8 @@ export class ProductOpinionsComponent implements OnInit {
   ngOnInit(): void {
   }
   addOpinion() {
-    const nicknameElement = document.querySelector<HTMLInputElement>("nickname");
-    const opinionElement = document.querySelector<HTMLInputElement>("opinion");
+    const nicknameElement = document.querySelector<HTMLInputElement>(".nickname");
+    const opinionElement = document.querySelector<HTMLInputElement>(".opinion");
 
     let flag: boolean = false;
     if (nicknameElement.value === "") {

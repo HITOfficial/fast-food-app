@@ -38,13 +38,11 @@ export class MenuComponent implements OnInit {
 
 
   ngOnInit(): void {
-    setTimeout(() => {
+    this.menuService.getMenuProducts().subscribe(data => {
+      this.menuData = data;
       this.isMenuDataLoaded = true;
-      this.menuData = this.menuService.getMenuProducts();
-      console.log(this.menuData);
-    }, 500)
+    });
   }
-
 
 }
 

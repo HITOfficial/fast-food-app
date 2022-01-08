@@ -13,15 +13,16 @@ export class ProductDetailsComponent implements OnInit {
 
   product: IMenuProduct;
   remaining: number;
-  menuService: MenuService;
+  menuService: any;
 
   ngOnInit(): void {
   }
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute) {
+    console.log(this.router.getCurrentNavigation().extras.state.menuService);
     this.product = this.router.getCurrentNavigation().extras.state.product
     this.remaining = this.router.getCurrentNavigation().extras.state.remaining;
-    this.menuService = this.router.getCurrentNavigation().extras.state.menuService;
+    // this.menuService = this.router.getCurrentNavigation().extras.state.menuService;
   }
 
 

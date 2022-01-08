@@ -7,30 +7,32 @@ import { IMenuProductOpinion } from '../models/menu-product-opinion';
 
 @Injectable()
 export class MenuService {
-  private menuProductsDb: AngularFireList<IMenuProduct>;
-  menuProducts: IMenuProduct[];
+  private menuProductsRef: AngularFireList<IMenuProduct>;
+  menuProducts: Observable<IMenuProduct[]>;
   constructor(private db: AngularFireDatabase) {
-    this.menuProductsDb = db.list('menu');
-    this.menuProductsDb.valueChanges().subscribe(res => { this.menuProducts = res });
+    this.menuProductsRef = db.list('menu');
+    this.menuProducts = this.menuProductsRef.valueChanges();
   }
 
   addProduct(product: IMenuProduct) {
-    this.menuProductsDb.push(product);
+    const newProduct = this.menuProductsRef.push(product);
+    const key = newProduct.key;
+    console.log(key);
+    // key as a value in interface to not use snapshotchanges, but only valuechanges
+    this.db.list('menu').update(key, { productId: key })
   }
 
-  deleteProduct(product: any) {
-    // const idx = this.menuProducts.indexOf(product)
-    // this.menuProducts.splice(idx, 1);
-    // this.menuProductsDb.remove(product);
+  deleteProduct(product: IMenuProduct) {
+    this.db.list('menu').remove(product.productId.toString());
   }
 
   addOpinion(product: IMenuProduct, opinion: IMenuProductOpinion) {
-    const index = this.menuProducts.indexOf(product);
-    console.log(index);
+    // const index = this.menuProducts.indexOf(product);
+    // console.log(index);
     // product.opinions.push(opinion);
   }
 
-  getMenuProducts(): any {
+  getMenuProducts(): Observable<IMenuProduct[]> {
     return this.menuProducts;
   }
 }
