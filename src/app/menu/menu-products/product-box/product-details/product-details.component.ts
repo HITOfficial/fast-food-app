@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IMenuProduct } from 'src/app/models/menu-product';
-import { IMenuProductOpinion } from 'src/app/models/menu-product-opinion';
 import { MenuService } from 'src/app/services/menu.service';
 
 @Component({
@@ -13,16 +12,13 @@ export class ProductDetailsComponent implements OnInit {
 
   product: IMenuProduct;
   remaining: number;
-  menuService: any;
 
   ngOnInit(): void {
   }
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute) {
-    console.log(this.router.getCurrentNavigation().extras.state.menuService);
+  constructor(private router: Router, private activatedRoute: ActivatedRoute, public menuService: MenuService) {
     this.product = this.router.getCurrentNavigation().extras.state.product
     this.remaining = this.router.getCurrentNavigation().extras.state.remaining;
-    // this.menuService = this.router.getCurrentNavigation().extras.state.menuService;
   }
 
 
@@ -49,6 +45,5 @@ export class ProductDetailsComponent implements OnInit {
   goToMenu() {
     this.router.navigate(["../"], { relativeTo: this.activatedRoute });
   }
-
 
 }

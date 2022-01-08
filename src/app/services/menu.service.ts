@@ -27,9 +27,8 @@ export class MenuService {
   }
 
   addOpinion(product: IMenuProduct, opinion: IMenuProductOpinion) {
-    // const index = this.menuProducts.indexOf(product);
-    // console.log(index);
-    // product.opinions.push(opinion);
+    const key = product.productId;
+    this.db.list('menu').update(key.toString(), { opinions: [...product.opinions, opinion] })
   }
 
   getMenuProducts(): Observable<IMenuProduct[]> {

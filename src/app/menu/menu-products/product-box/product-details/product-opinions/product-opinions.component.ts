@@ -17,36 +17,38 @@ export class ProductOpinionsComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+
   addOpinion() {
     const nicknameElement = document.querySelector<HTMLInputElement>(".nickname");
     const opinionElement = document.querySelector<HTMLInputElement>(".opinion");
 
     let flag: boolean = false;
-    if (nicknameElement.value === "") {
-      if (!nicknameElement.classList.contains("warning")) {
-        flag = true;
+    if (!nicknameElement.value) {
+      flag = true;
+      if (!nicknameElement.classList.contains("required")) {
+        nicknameElement.classList.add("required");
         setTimeout(this.removeWarning, 2000, nicknameElement);
       }
     }
 
-    if (opinionElement.value === "") {
-      if (!opinionElement.classList.contains("warning")) {
-        flag = true;
+    if (!opinionElement.value) {
+      flag = true;
+      if (!opinionElement.classList.contains("required")) {
+        opinionElement.classList.add("required");
         setTimeout(this.removeWarning, 2000, opinionElement);
       }
     }
 
-
     if (!flag) {
       const opinion: IMenuProductOpinion = { user: nicknameElement.value, opinion: opinionElement.value };
       this.menuService.addOpinion(this.product, opinion);
-      // this.menuService.
     }
   }
 
   removeWarning(element: HTMLInputElement) {
-    if (element.classList.contains("warning")) {
-      element.classList.remove("warning")
+    if (element.classList.contains("required")) {
+      element.classList.remove("required")
     }
   }
 

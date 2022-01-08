@@ -19,7 +19,7 @@
 }
 
 .required {
-    outline:2px solid #dc3545;
+    border:2px solid #dc3545;
 }
 
 .add-opinion-button {
