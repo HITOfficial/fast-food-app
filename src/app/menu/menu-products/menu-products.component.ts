@@ -1,4 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Observable, Subscription } from 'rxjs';
+import { IMenuProduct } from 'src/app/models/menu-product';
+import { IPagination } from 'src/app/models/pagination';
 import { MenuService } from 'src/app/services/menu.service';
 
 @Component({
@@ -11,13 +14,28 @@ export class MenuProductsComponent implements OnInit {
   @Input() activeCategories: any;
   @Input() menuService: MenuService;
 
+  @Input() events: Observable<void>;
+  private eventsSubscription: Subscription;
+
   minPrice: number;
   maxPrice: number;
   minPriceCondition: number = (-1) * Infinity;
   maxPriceCondition: number = Infinity;
 
-  constructor() {
+  pagination: IPagination = {
+    actualPage: 1,
+    totalPages: undefined,
+    displayedProducts: 0,
+    productsPerPage: 5,
+    productsToSkip: 0,
+    totalPagesArray: undefined
+  };
 
+
+
+
+
+  constructor() {
   }
 
   sortObjectsListByPriceDESC() {
@@ -34,7 +52,6 @@ export class MenuProductsComponent implements OnInit {
   // element with the highest price in selected categories
   minMaxPrice() {
     // reset previous value
-
     let minPrice = Infinity;
     let maxPrice = (-1) * Infinity;
     for (let e of this.products) {
@@ -47,23 +64,13 @@ export class MenuProductsComponent implements OnInit {
     this.maxPrice = maxPrice;
   }
 
-  ngOnChanges() {
-    this.minMaxPrice();
-
-  }
-
-  ngOnInit(): void {
-    this.sortObjectsListByPriceDESC();
-    this.categoriesUpdate();
-  }
-
   categoriesUpdate(): void {
     const categoriesDOM = document.querySelector('.categories');
     categoriesDOM.addEventListener('click', this.minMaxPrice.bind(this));
+    this.paginationEvent();
   }
 
   priceFilter(): void {
-    console.log(this.minPrice, this.maxPrice);
     const newMinPrice = (<HTMLInputElement>document.querySelector('.min-price-btn')).value;
     const newMaxPrice = (<HTMLInputElement>document.querySelector('.max-price-btn')).value;
     this.minPriceCondition = Number(newMinPrice);
@@ -71,8 +78,93 @@ export class MenuProductsComponent implements OnInit {
     this.categoriesUpdate();
   }
 
-
   checkIfPriceBetween(price: number): boolean {
     return price >= this.minPriceCondition && price <= this.maxPriceCondition;
   }
+
+  calculateTotalPages() {
+    let counter = 0;
+    for (let product of this.products) {
+      if (this.activeCategories[product.productCategory] && this.checkIfPriceBetween(product.price)) {
+        counter += 1;
+      }
+    }
+    this.pagination.totalPages = Math.ceil(counter / this.pagination.productsPerPage);
+    this.pagination.totalPagesArray = new Array();
+    for (let i = 0; i < this.pagination.totalPages; i++) {
+      this.pagination.totalPagesArray.push(i + 1);
+    }
+  }
+
+  nextPage() {
+    this.pagination.actualPage = (this.pagination.actualPage % this.pagination.totalPages) + 1;
+    this.paginationEvent();
+  }
+
+  previousPage() {
+    if (this.pagination.actualPage === 1) {
+      // removing reference
+      this.pagination.actualPage = this.pagination.totalPages + 0;
+    }
+    else {
+      this.pagination.actualPage -= 1;
+    }
+    this.paginationEvent();
+  }
+
+  goToPage(pageNumber) {
+    this.pagination.actualPage = pageNumber;
+    this.paginationEvent();
+  }
+
+  resetDisplayedProducts() {
+    this.pagination.displayedProducts = 0;
+  }
+
+  calculateProductsToSkip() {
+    this.pagination.productsToSkip = (this.pagination.actualPage - 1) * this.pagination.productsPerPage;
+  }
+
+  showProduct(product: IMenuProduct): boolean {
+    // showed all products on actual page
+    if (this.pagination.displayedProducts > this.pagination.productsPerPage) {
+      return false;
+    }
+    else if (this.pagination.productsToSkip > 0) {
+      this.pagination.productsToSkip -= 1;
+      return false;
+    }
+    else {
+      this.pagination.displayedProducts += 1;
+      return true;
+    }
+  }
+
+  paginationEvent() {
+    this.resetDisplayedProducts();
+    this.calculateTotalPages();
+    this.calculateProductsToSkip();
+    console.log(this.pagination);
+
+  }
+
+  ngOnChanges() {
+    this.minMaxPrice();
+    this.paginationEvent()
+
+  }
+
+  loadProducts: boolean = false;
+
+  ngOnInit(): void {
+    this.sortObjectsListByPriceDESC();
+    this.categoriesUpdate();
+    setTimeout(() => this.loadProducts = true, 50);
+    this.eventsSubscription = this.events.subscribe(() => this.paginationEvent());
+  }
+
+  ngOnDestroy() {
+    this.eventsSubscription.unsubscribe();
+  }
+
 }

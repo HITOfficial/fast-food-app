@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Subject } from 'rxjs';
 import { MenuService } from '../services/menu.service';
 
 
@@ -9,13 +10,18 @@ import { MenuService } from '../services/menu.service';
 })
 export class MenuComponent implements OnInit {
   isMenuDataLoaded: boolean = false;
-  menuData: unknown
+  menuData: any;
 
+  eventsSubject: Subject<void> = new Subject<void>();
+
+  emitEventToChild() {
+    this.eventsSubject.next();
+  }
 
   activeCategories = {
     news: true,
     burgers: true,
-    chicken: false,
+    chicken: true,
     vege: true,
     sets: true,
     drinks: true,
@@ -34,6 +40,9 @@ export class MenuComponent implements OnInit {
 
 
   constructor(public menuService: MenuService) {
+  }
+
+  updated(event) {
   }
 
 

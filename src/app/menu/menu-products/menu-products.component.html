@@ -20,19 +20,29 @@
     <ng-container
         *ngFor="let product of products; let i = index"
         >
-        <div
-            *ngIf="activeCategories[product.productCategory] && checkIfPriceBetween(product.price)"
-            class="col-xs-6 col md-6 col-lg-4 col-xl-3"
-            >
-                <app-product-box
-                    [maxPrice]="maxPrice"
-                    [minPrice]="minPrice"
-                    [product]="product"
-                    [products]="products"
-                    [index]="i"
-                    [menuService] = "menuService"
+        <ng-container *ngIf="loadProducts">
+            <ng-container
+                *ngIf="activeCategories[product.productCategory] && checkIfPriceBetween(product.price)"
                 >
-                </app-product-box>
-        </div>
+                <div *ngIf="showProduct(product)" class="col-xs-6 col md-6 col-lg-4 col-xxl-3">
+                    <app-product-box
+                        [maxPrice]="maxPrice"
+                        [minPrice]="minPrice"
+                        [product]="product"
+                        [products]="products"
+                        [index]="i"
+                        [menuService] = "menuService"
+                    >
+                    </app-product-box>
+                </div>
+            </ng-container>
+        </ng-container>
     </ng-container>
+    <div class="pagination-container d-flex justify-content-center mb-3">
+        <button type="button" class="btn" (click)="previousPage()"><</button>
+        <ng-container *ngFor="let index of pagination.totalPagesArray">
+            <button [ngClass]="{'bg-warning text-light': index === pagination.actualPage}" type="button" class="btn" (click)="goToPage(index)">{{index}}</button>
+        </ng-container>
+        <button type="button" class="btn" (click)="nextPage()">></button>
+    </div>
 </div>

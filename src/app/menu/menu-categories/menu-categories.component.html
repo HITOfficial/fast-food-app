@@ -2,6 +2,7 @@
     <app-menu-header class="w-100"
         [categories]="categories"
         [activeCategories] ="activeCategories"
+        (updatedCategory)="updated($event)"
         >
         </app-menu-header>
 </div>
