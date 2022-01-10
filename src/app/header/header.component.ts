@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CurrencyService } from '../services/currency.service';
 
 @Component({
 	selector: 'app-header',
@@ -7,8 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 	menuHiden: boolean = true
-	constructor() {
+	constructor(public currencyService: CurrencyService) {
 	}
+
+
 
 	ngOnInit(): void {
 	}

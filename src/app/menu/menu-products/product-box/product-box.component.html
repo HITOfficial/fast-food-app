@@ -1,5 +1,5 @@
 <div
-    [ngClass]="{'orange-box-shadow': remaining <= 3,'blue-box-shadow': remaining == 0,'highest-price-box-shadow': product.price === maxPrice, 'lowest-price-box-shadow': product.price ===minPrice}"
+    [ngClass]="{'orange-box-shadow': remaining <= 3,'blue-box-shadow': remaining == 0,'highest-price-box-shadow': this.currencyService.getPrice(product.price) === maxPrice, 'lowest-price-box-shadow': this.currencyService.getPrice(product.price) ===minPrice}"
     class="background-image position-relative mb-5"
     style="background-image: url('{{product.productImage}}');
         background-size: contain;"
@@ -20,7 +20,7 @@
         <strong>Category:</strong> {{product.productCategory}}
         </p>
         <p> <strong>Price: </strong>
-            {{product.price}}
+            {{currencyService.getPrice(product.price)}} {{currencyService.getCurrency()}}
         </p>
         <div class="buttons">
             <div class="buttons-box">

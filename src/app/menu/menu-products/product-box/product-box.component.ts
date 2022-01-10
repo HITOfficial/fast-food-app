@@ -1,6 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IMenuProduct } from 'src/app/models/menu-product';
+import { CurrencyService } from 'src/app/services/currency.service';
 import { MenuService } from 'src/app/services/menu.service';
 
 @Component({
@@ -18,7 +19,8 @@ export class ProductBoxComponent implements OnInit {
   @Input() menuService: MenuService;
   remaining: number;
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute) {
+
+  constructor(private router: Router, private activatedRoute: ActivatedRoute, public currencyService: CurrencyService) {
   }
 
   ngOnInit(): void {
@@ -41,7 +43,6 @@ export class ProductBoxComponent implements OnInit {
   }
 
   remove() {
-    // this.menuService.deleteProduct(this.product);
     this.menuService.deleteProduct(this.product);
   }
 

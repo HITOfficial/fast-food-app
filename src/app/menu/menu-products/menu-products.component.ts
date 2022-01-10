@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { IMenuProduct } from 'src/app/models/menu-product';
 import { IPagination } from 'src/app/models/pagination';
+import { CurrencyService } from 'src/app/services/currency.service';
 import { MenuService } from 'src/app/services/menu.service';
 
 @Component({
@@ -32,15 +33,12 @@ export class MenuProductsComponent implements OnInit {
   };
 
 
-
-
-
-  constructor() {
+  constructor(private currencyService: CurrencyService) {
   }
 
   sortObjectsListByPriceDESC() {
     this.products.sort((a, b) => {
-      if (a.price >= b.price) {
+      if (this.currencyService.getPrice(a.price) >= this.currencyService.getPrice(b.price)) {
         return -1;
       }
       else {
@@ -55,9 +53,9 @@ export class MenuProductsComponent implements OnInit {
     let minPrice = Infinity;
     let maxPrice = (-1) * Infinity;
     for (let e of this.products) {
-      if ((this.activeCategories[e.productCategory] === true) && (e.price >= this.minPriceCondition && e.price <= this.maxPriceCondition)) {
-        maxPrice = Math.max(e.price, maxPrice);
-        minPrice = Math.min(e.price, minPrice);
+      if ((this.activeCategories[e.productCategory] === true) && (this.currencyService.getPrice(e.price) >= this.minPriceCondition && this.currencyService.getPrice(e.price) <= this.maxPriceCondition)) {
+        maxPrice = Math.max(this.currencyService.getPrice(e.price), maxPrice);
+        minPrice = Math.min(this.currencyService.getPrice(e.price), minPrice);
       }
     }
     this.minPrice = minPrice;
@@ -79,7 +77,7 @@ export class MenuProductsComponent implements OnInit {
   }
 
   checkIfPriceBetween(price: number): boolean {
-    return price >= this.minPriceCondition && price <= this.maxPriceCondition;
+    return this.currencyService.getPrice(price) >= this.minPriceCondition && this.currencyService.getPrice(price) <= this.maxPriceCondition;
   }
 
   calculateTotalPages() {
@@ -144,7 +142,6 @@ export class MenuProductsComponent implements OnInit {
     this.resetDisplayedProducts();
     this.calculateTotalPages();
     this.calculateProductsToSkip();
-    console.log(this.pagination);
 
   }
 
@@ -157,6 +154,7 @@ export class MenuProductsComponent implements OnInit {
   loadProducts: boolean = false;
 
   ngOnInit(): void {
+    this.loadProducts = false;
     this.sortObjectsListByPriceDESC();
     this.categoriesUpdate();
     setTimeout(() => this.loadProducts = true, 50);

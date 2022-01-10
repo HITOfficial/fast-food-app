@@ -18,6 +18,7 @@
     transition: all 500ms ease-in-out;
     cursor: pointer;
     color: white;
+    z-index: 1;
 }
 
 .go-back:hover {
@@ -58,4 +59,25 @@ p {
 
 .warning {
     outline: 2px solid #ff1749;
+}
+
+.change-images-container {
+    z-index: 3;
+    position: absolute;
+    right: 0;
+    bottom: 1rem;
+    background-color: #ffc107;
+}
+
+.change-images-container > .btn {
+    width: 50%;
+    height: 100%;
+    z-index: 3;
+    font-size: 25px;
+    transition: 300ms ease-in-out;
+}
+
+.change-images-container > .btn:hover {
+    color: white;
+
 }

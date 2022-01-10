@@ -33,14 +33,20 @@
                 </li>
                  <li routerLinkActive="active" class="nav-item">
                     <a class="nav-link text-black" routerLink="/socials"> Socials </a>
-                </li> 
+                </li>
+                 
             </ul>
+
+            <div class="order-box d-flex">
+                <button type="button" class="btn text-grey p-0" (click)="currencyService.changeCurrency('$')" [ngClass]="{'text-muted': currencyService.getCurrency() != '$'}">$</button>
+                <button type="button" class="btn p-0" (click)="currencyService.changeCurrency('€')" [ngClass]="{'text-muted': currencyService.getCurrency() != '€'}">€</button>
+            </div>
+
             <div class="order-box col-xs-12 col-md-4 col-sm-3 d-flex justify-content-end">
                 <button routerLinkActive="active" routerLink="/order-now" type="button" class=" btn btn-warning mr-3 text-uppercase text-bold">
                     <span class="text-dark">Order now!</span>
                 </button>
             </div>
-            
         </div>
 	</nav>
 </header>

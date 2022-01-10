@@ -5,7 +5,9 @@ import { IMenuProduct } from '../models/menu-product';
 import { IMenuProductOpinion } from '../models/menu-product-opinion';
 
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class MenuService {
   private menuProductsRef: AngularFireList<IMenuProduct>;
   menuProducts: Observable<IMenuProduct[]>;
@@ -13,6 +15,9 @@ export class MenuService {
     this.menuProductsRef = db.list('menu');
     this.menuProducts = this.menuProductsRef.valueChanges();
   }
+
+
+
 
   addProduct(product: IMenuProduct) {
     const newProduct = this.menuProductsRef.push(product);

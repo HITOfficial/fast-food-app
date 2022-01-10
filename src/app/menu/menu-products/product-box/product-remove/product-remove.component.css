@@ -7,4 +7,12 @@ button {
     padding: 0;
     margin: 0;
     text-align: center;
+    transition: 200ms ease-in-out;
 }
+
+button:hover {
+    color: #ffc017;
+    background-color: white !important;
+}
+
+

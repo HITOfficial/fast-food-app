@@ -13,6 +13,8 @@ export class ProductOpinionsComponent implements OnInit {
   @Input() menuService: MenuService;
 
 
+
+
   constructor() { }
 
   ngOnInit(): void {
