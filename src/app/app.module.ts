@@ -50,6 +50,8 @@ import { ProductOpinionsComponent } from './menu/menu-products/product-box/produ
 import { ProductRemoveComponent } from './menu/menu-products/product-box/product-remove/product-remove.component';
 import { UserOpinionsComponent } from './menu/menu-products/product-box/product-details/product-opinions/user-opinions/user-opinions.component';
 import { UserOpinionComponent } from './menu/menu-products/product-box/product-details/product-opinions/user-opinions/user-opinion/user-opinion.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 
 const routes: Routes = [
@@ -64,6 +66,9 @@ const routes: Routes = [
   { path: "help", component: HelpComponent },
   { path: "regulations", component: RegulationsComponent },
   { path: "faq", component: FaqComponent },
+  { path: "login", component: LoginComponent },
+  { path: "register", component: RegisterComponent }
+
 ]
 
 @NgModule({
@@ -109,6 +114,8 @@ const routes: Routes = [
     ProductRemoveComponent,
     UserOpinionsComponent,
     UserOpinionComponent,
+    LoginComponent,
+    RegisterComponent,
   ],
 
   imports: [
