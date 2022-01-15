@@ -1,28 +1,46 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { IUser } from '../models/user';
+import { UsersService } from './users.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   userData: Observable<any>;
+  loggedUserData: IUser;
+  uid: string;
 
-  constructor(private angularFireAuth: AngularFireAuth) {
+  constructor(private angularFireAuth: AngularFireAuth, private router: Router, public usersService: UsersService) {
     this.userData = angularFireAuth.authState;
   }
 
   signUp(email: string, password: string) {
-    this.angularFireAuth.createUserWithEmailAndPassword(email, password).then(res => console.log('registered', res)).catch(err => console.log('Error ', err));
+    this.angularFireAuth.createUserWithEmailAndPassword(email, password).then(res => {
+
+      this.router.navigate([''])
+    }).catch(err => console.log('Error ', err));
   }
 
 
   signIn(email: string, password: string) {
-    this.angularFireAuth.signInWithEmailAndPassword(email, password).then(res => console.log('logged!: ', res)).catch(err => console.log('Error: ', err));
+    this.angularFireAuth.signInWithEmailAndPassword(email, password).then(res => {
+      console.log('logged!: ', res);
+      this.uid = res.user.uid;
+      this.getLoggedUserData(this.uid);
+      this.router.navigate(['']);
+    }).catch(err => console.log('Error: ', err));
   }
 
   signOut() {
     this.angularFireAuth.signOut();
+    this.loggedUserData = undefined;
+  }
+
+  getLoggedUserData(uid: string) {
+    this.usersService.getUser(uid).subscribe(data => { this.loggedUserData = data; console.log(this.loggedUserData); console.log('TOTOTO') });
   }
 
 }
