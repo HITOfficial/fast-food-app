@@ -18,6 +18,7 @@ export class UsersService {
   banUser(user: IUser) {
     this.db.list('users').update(user.uid, { banned: true })
   }
+
   unbanUser(user: IUser) {
     this.db.list('users').update(user.uid, { banned: false })
   }
@@ -25,4 +26,9 @@ export class UsersService {
   getUser(uid: string): any {
     return this.db.object('users/' + uid).valueChanges();
   }
+
+  updateBoughtProductsList(uid: string, productId: string) {
+    this.db.list('users' + uid + '/boughtProducts').push(productId);
+  }
+
 }

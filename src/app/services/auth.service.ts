@@ -11,7 +11,7 @@ import { UsersService } from './users.service';
 export class AuthService {
   userData: Observable<any>;
   loggedUserData: IUser;
-  uid: string;
+  loggedUserUid: string;
 
   constructor(private angularFireAuth: AngularFireAuth, private router: Router, public usersService: UsersService) {
     this.userData = angularFireAuth.authState;
@@ -28,8 +28,8 @@ export class AuthService {
   signIn(email: string, password: string) {
     this.angularFireAuth.signInWithEmailAndPassword(email, password).then(res => {
       console.log('logged!: ', res);
-      this.uid = res.user.uid;
-      this.getLoggedUserData(this.uid);
+      this.loggedUserUid = res.user.uid;
+      this.getLoggedUserData(this.loggedUserUid);
       this.router.navigate(['']);
     }).catch(err => console.log('Error: ', err));
   }
@@ -37,6 +37,11 @@ export class AuthService {
   signOut() {
     this.angularFireAuth.signOut();
     this.loggedUserData = undefined;
+    this.loggedUserUid
+  }
+
+  getLoggedUserUid() {
+    return this.loggedUserUid;
   }
 
   getLoggedUserData(uid: string) {

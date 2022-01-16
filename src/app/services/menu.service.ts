@@ -3,6 +3,7 @@ import { AngularFireDatabase, AngularFireList } from '@angular/fire/compat/datab
 import { Observable } from 'rxjs';
 import { IMenuProduct } from '../models/menu-product';
 import { IMenuProductOpinion } from '../models/menu-product-opinion';
+import { IShoppingBinProduct } from '../models/shopping-bin-product';
 
 
 @Injectable({
@@ -38,5 +39,10 @@ export class MenuService {
 
   getMenuProducts(): Observable<IMenuProduct[]> {
     return this.menuProducts;
+  }
+
+  updateProductQuantity(product: IShoppingBinProduct) {
+    this.db.list('menu').update(product.key.toString(), { quantity: product.quantity })
+
   }
 }
