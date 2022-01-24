@@ -63,3 +63,13 @@
 .shopping-bin-container:hover > .shopping-bin {
     color: white;
 }
+
+.username {
+    position: absolute;
+    top:5px;
+    left: -20px;
+}
+
+.username-container {
+    position: relative;
+}

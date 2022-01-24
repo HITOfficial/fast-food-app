@@ -11,22 +11,29 @@
         </button>
         <div class="collapse navbar-collapse col-md-12" id="togglemenu">
            <ul class="col-xs-12 col-sm-5 col-md-7 navbar-nav">
-                <li *ngIf="authService.isAdmin()"
-                    routerLinkActive="active" class="nav-item">
-                    <a class="nav-link text-black" routerLink="/admin-panel"> Admin Panel </a>
-                </li>
+
                 <ng-template #loggedUser>
-                    <li class="nav-item">
+                    <li class="nav-item username-container">
                             Hello
-                            {{authService.loggedUserName}}
+                            <a class="nav-link username">
+                                {{authService.loggedUserName}}
+                            </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-black" routerLink="/login" (click)=" selectedProductsService.removeAllFromShoppingBin(); authService.signOut()"> Logout </a>
                     </li>
                 </ng-template>
                 <li routerLinkActive="active" class="nav-item col-xs-12">
-                    <a class="nav-link text-black" href=""> Home </a>
+                    <a class="nav-link text-black" routerLink=""> Home </a>
                     <hr>
+                </li>
+                <li *ngIf="authService.isAdmin()"
+                    routerLinkActive="active" class="nav-item">
+                    <a class="nav-link text-black" routerLink="/admin-panel"> Admin Panel </a>
+                </li>
+                <li *ngIf="authService.isManager()"
+                    routerLinkActive="active" class="nav-item">
+                    <a class="nav-link text-black" routerLink="/add-product"> Add Product </a>
                 </li>
                 <li routerLinkActive="active" class="nav-item">
                     <a class="nav-link text-black" routerLink="/menu"> Menu </a>
@@ -70,7 +77,7 @@
                 <button type="button" class="btn p-0" (click)="currencyService.changeCurrency('€')" [ngClass]="{'text-muted': currencyService.getCurrency() != '€'}">€</button>
             </div>
 
-            <div class="order-box col-xs-12 col-md-4 col-sm-3 d-flex justify-content-end">
+            <div *ngIf="authService.isCustomer()" class="order-box col-xs-12 col-md-4 col-sm-3 d-flex justify-content-end">
                 <button type="button" (click)="selectedProductsService.buyNow()" class=" btn btn-warning mr-3 text-uppercase text-bold">
                     <span class="text-dark">Order now!</span>
                 </button>

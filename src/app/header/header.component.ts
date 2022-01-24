@@ -13,7 +13,7 @@ export class HeaderComponent implements OnInit {
 	constructor(public currencyService: CurrencyService, public selectedProductsService: SelectedProductsService, public authService: AuthService) {
 	}
 
-
+	isDataAvailable: boolean = false;
 
 	ngOnInit(): void {
 	}

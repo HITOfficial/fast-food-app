@@ -1,0 +1,20 @@
+.add-product-container {
+    min-width: 500px;
+    width: 30vw;
+    box-shadow: 0px 0px 8px 2px rgb(0 0 0 /50%);
+    height: fit-content;
+    margin: 5rem auto;
+    padding: 2rem;
+}
+button {
+    margin: 0 auto;
+    border-radius: 200px;
+}
+
+.success {
+    outline: 2px solid rgb(9, 156, 9);
+}
+
+.fail {
+    outline: 2px solid rgb(128, 0, 6);
+}

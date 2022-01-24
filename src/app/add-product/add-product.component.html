@@ -1,0 +1,30 @@
+<p>add-product works!</p>
+<div class="add-product-container d-flex-row align-center">
+
+    <div  class="d-flex justify-content-center">
+        <input #description type="text" placeholder="description">
+    </div>
+    <div class="d-flex justify-content-center">
+        <input #ingredients type="text" placeholder="ingredients">
+    </div>
+    <div class="d-flex justify-content-center">
+        <input #price type="number" placeholder="price">
+    </div>
+    <div class="d-flex justify-content-center">
+        <input #productCategory type="text" placeholder="product category">
+    </div>
+    <div class="d-flex justify-content-center">
+        <input #productImage type="text" placeholder="product image">
+    </div>
+    <div class="d-flex justify-content-center">
+        <input #calories type="number" placeholder="calories">
+    </div>
+    <div class="d-flex justify-content-center">
+        <input #quantity type="number" placeholder="quantity">
+    </div>
+    <div class="d-flex justify-content-center mt-3">
+        <button type="button" (click)="addProduct(description.value, ingredients.value, price.value, productCategory.value, productImage.value, calories.value, quantity.value)" class=" btn btn-warning mr-3 text-uppercase">
+            <span class="text-dark font-weight-bold">Add product</span>
+        </button>
+    </div>
+</div>

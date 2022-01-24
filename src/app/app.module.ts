@@ -53,6 +53,7 @@ import { UserOpinionComponent } from './menu/menu-products/product-box/product-d
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
+import { AddProductComponent } from './add-product/add-product.component';
 
 
 const routes: Routes = [
@@ -69,7 +70,9 @@ const routes: Routes = [
   { path: "faq", component: FaqComponent },
   { path: "login", component: LoginComponent },
   { path: "register", component: RegisterComponent },
-  { path: "admin-panel", component: AdminPanelComponent }
+  { path: "admin-panel", component: AdminPanelComponent },
+  { path: "add-product", component: AddProductComponent }
+
 ]
 
 @NgModule({
@@ -118,6 +121,7 @@ const routes: Routes = [
     LoginComponent,
     RegisterComponent,
     AdminPanelComponent,
+    AddProductComponent,
   ],
 
   imports: [

@@ -1,5 +1,5 @@
 <div *ngIf="authService.isAdmin()" class="users-container">
-    <div *ngFor="let user of users" class="d-flex justify-content-around">
+    <div *ngFor="let user of users" class="d-flex justify-content-between">
         <div class="user-name">
            <strong>
                {{user.email}}
