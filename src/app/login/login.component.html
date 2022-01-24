@@ -7,6 +7,8 @@
     </div>
     <button type="button" class="btn bg-warning login pt-2 pb-2" (click)="login(email.value, password.value)">Login</button>
     <div class="register-container d-flex justify-content-end">
-        <button type="button" class="btn register p-0">Signup</button>
+        <button type="button" class="btn register p-0">
+            <a class="nav-link text-black" routerLink="/register"> Signup </a>
+        </button>
     </div>
 </div>

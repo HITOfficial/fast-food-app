@@ -1,5 +1,6 @@
 <div class="opinions w-100 mt-5">
-    <h2 class="text-center mb-4">
+    <h2 class="text-center mb-4" 
+        *ngIf="authService.canAddComment(product)">
         Add review about the product
     </h2>
     <div *ngIf="authService.canAddComment(product)" class="add-opinion-container d-flex-row position-relative mt-2 mb-2">

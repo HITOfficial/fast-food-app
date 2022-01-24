@@ -11,13 +11,17 @@
         </button>
         <div class="collapse navbar-collapse col-md-12" id="togglemenu">
            <ul class="col-xs-12 col-sm-5 col-md-7 navbar-nav">
+                <li *ngIf="authService.isAdmin()"
+                    routerLinkActive="active" class="nav-item">
+                    <a class="nav-link text-black" routerLink="/admin-panel"> Admin Panel </a>
+                </li>
                 <ng-template #loggedUser>
                     <li class="nav-item">
                             Hello
                             {{authService.loggedUserName}}
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-black" routerLink="/login" (click)="authService.signOut()"> Logout </a>
+                        <a class="nav-link text-black" routerLink="/login" (click)=" selectedProductsService.removeAllFromShoppingBin(); authService.signOut()"> Logout </a>
                     </li>
                 </ng-template>
                 <li routerLinkActive="active" class="nav-item col-xs-12">
@@ -36,7 +40,8 @@
                     <a class="nav-link text-black" routerLink="/get-job"> Get Job </a>
                     <hr>
                 </li>
-                <li routerLinkActive="active" class="nav-item">
+                <li *ngIf="authService.isCustomer()"
+                    routerLinkActive="active" class="nav-item">
                     <a
                         class="nav-link text-black position-relative shopping-bin-container"
                         routerLink="/shopping-bin"
@@ -50,11 +55,11 @@
                 <li routerLinkActive="active" class="nav-item">
                     <a class="nav-link text-black" routerLink="/socials"> Socials </a>
                 </li>
-                <li *ngIf="authService.getLoggedUserUid() === undefined else loggedUser" routerLinkActive="active" class="nav-item">
+                <li *ngIf="!authService.isCustomer() else loggedUser" routerLinkActive="active" class="nav-item">
                     <a class="nav-link text-black" routerLink="/login"> Sign in </a>
                 </li>
 
-                <li *ngIf="authService.getLoggedUserUid() === undefined"   routerLinkActive="active" class="nav-item">
+                <li *ngIf="!authService.isCustomer()"   routerLinkActive="active" class="nav-item">
                     <a class="nav-link text-black" routerLink="/register" > Sign up </a>
                 </li>
                  

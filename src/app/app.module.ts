@@ -52,6 +52,7 @@ import { UserOpinionsComponent } from './menu/menu-products/product-box/product-
 import { UserOpinionComponent } from './menu/menu-products/product-box/product-details/product-opinions/user-opinions/user-opinion/user-opinion.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 
 
 const routes: Routes = [
@@ -67,8 +68,8 @@ const routes: Routes = [
   { path: "regulations", component: RegulationsComponent },
   { path: "faq", component: FaqComponent },
   { path: "login", component: LoginComponent },
-  { path: "register", component: RegisterComponent }
-
+  { path: "register", component: RegisterComponent },
+  { path: "admin-panel", component: AdminPanelComponent }
 ]
 
 @NgModule({
@@ -116,6 +117,7 @@ const routes: Routes = [
     UserOpinionComponent,
     LoginComponent,
     RegisterComponent,
+    AdminPanelComponent,
   ],
 
   imports: [

@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/compat/database'
-import { Observable } from 'rxjs';
 import { IMenuProduct } from '../models/menu-product';
 import { IMenuProductOpinion } from '../models/menu-product-opinion';
-import { IShoppingBinProduct } from '../models/shopping-bin-product';
+import { Observable } from 'rxjs';
+
 
 
 @Injectable({

@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { IMenuProduct } from '../models/menu-product';
 import { IUser } from '../models/user';
+import { SelectedProductsService } from './selected-products.service';
 import { UsersService } from './users.service';
 
 @Injectable({
@@ -21,7 +22,7 @@ export class AuthService {
 
   signUp(email: string, password: string) {
     this.angularFireAuth.createUserWithEmailAndPassword(email, password).then(res => {
-      this.router.navigate([''])
+      this.signIn(email, password);
     }).catch(err => console.log('Error ', err));
   }
 

@@ -3,6 +3,7 @@ import { AngularFireDatabase, AngularFireList, AngularFireObject } from '@angula
 import { Observable } from 'rxjs';
 import { IUser } from '../models/user';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -25,6 +26,27 @@ export class UsersService {
 
   getUser(uid: string): any {
     return this.db.object('users/' + uid).valueChanges();
+  }
+
+  getUsers(): Observable<IUser[]> {
+    return this.users;
+  }
+
+
+  addUser(mail: string) {
+    const user: IUser = {
+      banned: false,
+      email: mail,
+      roles: { admin: false, customer: true, manager: false },
+      uid: 'tmp',
+      boughtProducts: [
+        'd'
+      ],
+    }
+    const newUser = this.usersRef.push(user);
+    const key = newUser.key;
+    // key as a value in interface to not use snapshotchanges, but only valuechanges
+    this.usersRef.update(key, { uid: key });
   }
 
   updateBoughtProductsList(uid: string, productId: string) {

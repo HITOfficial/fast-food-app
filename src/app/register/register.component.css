@@ -1,0 +1,30 @@
+.register-container {
+    margin: 150px auto;
+    width: 500px;
+    height: 300px;
+    box-shadow: 0px 0px 8px 2px rgb(0 0 0 /50%);
+}
+
+.inputs-container {
+    height: 150px;
+    justify-content: space-around;
+}
+
+.register {
+    transition: 400ms ease-in-out ;
+}
+
+.register:hover {
+    color: white;
+    font-weight: 700;
+}
+
+.login {
+    transition: 300ms ease-in-out;
+}
+
+.login:hover {
+    text-decoration: underline;
+    font-weight: 700;
+}
+
