@@ -1,5 +1,5 @@
 <header class="row gx-0">
-	<nav class="navbar navbar-light navbar-expand-md">
+	<nav class="navbar navbar-light navbar-expand-xl">
         <!-- navbar-toggler class hides element in resolution highter than navbar-expand-->        
         <button        
             class="navbar-toggler"
@@ -14,13 +14,16 @@
 
                 <ng-template #loggedUser>
                     <li class="nav-item username-container">
+                            <a class="nav-link">
                             Hello
-                            <a class="nav-link username">
                                 {{authService.loggedUserName}}
                             </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-black" routerLink="/login" (click)=" selectedProductsService.removeAllFromShoppingBin(); authService.signOut()"> Logout </a>
+                    <li class="nav-item"
+                        (click)="selectedProductsService.removeAllFromShoppingBin(); authService.signOut()"
+                        >
+                        <a class="nav-link text-black pb-3 mr-5">Logout </a>
+                        <hr>
                     </li>
                 </ng-template>
                 <li routerLinkActive="active" class="nav-item col-xs-12">
@@ -30,10 +33,12 @@
                 <li *ngIf="authService.isAdmin()"
                     routerLinkActive="active" class="nav-item">
                     <a class="nav-link text-black" routerLink="/admin-panel"> Admin Panel </a>
+                    <hr>
                 </li>
                 <li *ngIf="authService.isManager()"
                     routerLinkActive="active" class="nav-item">
                     <a class="nav-link text-black" routerLink="/add-product"> Add Product </a>
+                    <hr>
                 </li>
                 <li routerLinkActive="active" class="nav-item">
                     <a class="nav-link text-black" routerLink="/menu"> Menu </a>
@@ -61,22 +66,24 @@
                 </li>
                 <li routerLinkActive="active" class="nav-item">
                     <a class="nav-link text-black" routerLink="/socials"> Socials </a>
+                    <hr>
                 </li>
                 <li *ngIf="!authService.isCustomer() else loggedUser" routerLinkActive="active" class="nav-item">
                     <a class="nav-link text-black" routerLink="/login"> Sign in </a>
+                    <hr>
                 </li>
 
-                <li *ngIf="!authService.isCustomer()"   routerLinkActive="active" class="nav-item">
+                <li *ngIf="!authService.isCustomer()" routerLinkActive="active" class="nav-item">
                     <a class="nav-link text-black" routerLink="/register" > Sign up </a>
+                    <hr>
                 </li>
-                 
+                
             </ul>
 
-            <div class="order-box d-flex">
-                <button type="button" class="btn text-grey p-0" (click)="currencyService.changeCurrency('$')" [ngClass]="{'text-muted': currencyService.getCurrency() != '$'}">$</button>
-                <button type="button" class="btn p-0" (click)="currencyService.changeCurrency('€')" [ngClass]="{'text-muted': currencyService.getCurrency() != '€'}">€</button>
+            <div class="currency-container position-absolute">
+                <button type="button" class="btn text-grey p-0" (click)="currencyService.changeCurrency('$')" [ngClass]="{'text-warning': currencyService.getCurrency() === '$'}">$</button>
+                <button type="button" class="btn p-0" (click)="currencyService.changeCurrency('€')" [ngClass]="{'text-warning': currencyService.getCurrency() === '€'}">€</button>
             </div>
-
             <div *ngIf="authService.isCustomer()" class="order-box col-xs-12 col-md-4 col-sm-3 d-flex justify-content-end">
                 <button type="button" (click)="selectedProductsService.buyNow()" class=" btn btn-warning mr-3 text-uppercase text-bold">
                     <span class="text-dark">Order now!</span>
