@@ -2,10 +2,7 @@
     <h2 class="text-center mb-4">
         Add review about the product
     </h2>
-    <div class="add-opinion-container d-flex-row position-relative mt-2 mb-2">
-        <div class="nickname-container w-100 mb-1">
-                <input type="text" class="nickname bg-light w-100 font-weight-bold" placeholder="your nickname">
-        </div>
+    <div *ngIf="authService.canAddComment(product)" class="add-opinion-container d-flex-row position-relative mt-2 mb-2">
         <div class="textarea-container w-100">
             <textarea class="bg-light opinion" placeholder="leave your opinion..."></textarea>
         </div>

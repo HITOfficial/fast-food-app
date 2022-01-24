@@ -1,8 +1,10 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IMenuProduct } from 'src/app/models/menu-product';
+import { AuthService } from 'src/app/services/auth.service';
 import { CurrencyService } from 'src/app/services/currency.service';
 import { MenuService } from 'src/app/services/menu.service';
+import { SelectedProductsService } from 'src/app/services/selected-products.service';
 
 @Component({
   selector: 'app-product-box',
@@ -20,7 +22,7 @@ export class ProductBoxComponent implements OnInit {
   remaining: number;
 
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute, public currencyService: CurrencyService) {
+  constructor(private router: Router, private activatedRoute: ActivatedRoute, public currencyService: CurrencyService, public selectedProductsService: SelectedProductsService, public authService: AuthService) {
   }
 
   ngOnInit(): void {
@@ -31,18 +33,22 @@ export class ProductBoxComponent implements OnInit {
     if (this.remaining > 0) {
       this.remaining -= 1;
     }
+    this.selectedProductsService.addToShoppingBin(this.product, 1);
   }
 
   reduceEvent() {
     if (this.remaining < this.product.quantity) {
       this.remaining += 1;
     }
+    this.selectedProductsService.reduceFromShoppingBin(this.product, 1);
   }
   resetEvent() {
     this.remaining = this.product.quantity + 0;
+    this.selectedProductsService.removeFromShoppingBin(this.product);
   }
 
   remove() {
+    this.selectedProductsService.removeFromShoppingBin(this.product);
     this.menuService.deleteProduct(this.product);
   }
 

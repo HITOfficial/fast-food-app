@@ -47,3 +47,19 @@
 
 }
 
+.shopping-bin {
+    width: 23px;
+    height: 20px;
+    border-radius: 50%;
+    padding-bottom: 23px;
+    text-align: center;
+    vertical-align: middle;
+    display: table-cell;
+    bottom: -3px;
+    right: -15px;
+    transition: 0.3s ease-in-out;
+}
+
+.shopping-bin-container:hover > .shopping-bin {
+    color: white;
+}

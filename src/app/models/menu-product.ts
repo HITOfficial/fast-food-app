@@ -1,5 +1,5 @@
 export interface IMenuProduct {
-    productId?: number,
+    productId?: string,
     productImage?: string,
     productCategory?: string,
     description?: string,

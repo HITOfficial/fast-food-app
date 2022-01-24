@@ -1,4 +1,6 @@
+import { IMenuProduct } from "./menu-product";
+
 export interface IShoppingBinProduct {
-    key: string,
+    product: IMenuProduct,
     quantity: number
 }

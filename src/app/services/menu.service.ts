@@ -17,13 +17,9 @@ export class MenuService {
     this.menuProducts = this.menuProductsRef.valueChanges();
   }
 
-
-
-
   addProduct(product: IMenuProduct) {
     const newProduct = this.menuProductsRef.push(product);
     const key = newProduct.key;
-    console.log(key);
     // key as a value in interface to not use snapshotchanges, but only valuechanges
     this.db.list('menu').update(key, { productId: key })
   }
@@ -41,8 +37,8 @@ export class MenuService {
     return this.menuProducts;
   }
 
-  updateProductQuantity(product: IShoppingBinProduct) {
-    this.db.list('menu').update(product.key.toString(), { quantity: product.quantity })
-
+  updateProductQuantity(product: IMenuProduct, q: number) {
+    this.db.list('menu').update(product.productId.toString(), { quantity: q })
   }
+
 }

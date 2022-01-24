@@ -28,7 +28,7 @@ export class UsersService {
   }
 
   updateBoughtProductsList(uid: string, productId: string) {
-    this.db.list('users' + uid + '/boughtProducts').push(productId);
+    this.db.list('users/' + uid + '/boughtProducts').push(productId);
   }
 
 }

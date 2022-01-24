@@ -11,6 +11,15 @@
         </button>
         <div class="collapse navbar-collapse col-md-12" id="togglemenu">
            <ul class="col-xs-12 col-sm-5 col-md-7 navbar-nav">
+                <ng-template #loggedUser>
+                    <li class="nav-item">
+                            Hello
+                            {{authService.loggedUserName}}
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-black" routerLink="/login" (click)="authService.signOut()"> Logout </a>
+                    </li>
+                </ng-template>
                 <li routerLinkActive="active" class="nav-item col-xs-12">
                     <a class="nav-link text-black" href=""> Home </a>
                     <hr>
@@ -28,11 +37,25 @@
                     <hr>
                 </li>
                 <li routerLinkActive="active" class="nav-item">
-                    <a class="nav-link text-black" routerLink="/shopping-bin"> Shopping Bin </a>
+                    <a
+                        class="nav-link text-black position-relative shopping-bin-container"
+                        routerLink="/shopping-bin"
+                        >
+                         Shopping Bin 
+                        <div class="shopping-bin position-absolute bg-warning ">
+                            {{selectedProductsService.getProductsQuantity()}}
+                        </div> </a>
                     <hr>
                 </li>
-                 <li routerLinkActive="active" class="nav-item">
+                <li routerLinkActive="active" class="nav-item">
                     <a class="nav-link text-black" routerLink="/socials"> Socials </a>
+                </li>
+                <li *ngIf="authService.getLoggedUserUid() === undefined else loggedUser" routerLinkActive="active" class="nav-item">
+                    <a class="nav-link text-black" routerLink="/login"> Sign in </a>
+                </li>
+
+                <li *ngIf="authService.getLoggedUserUid() === undefined"   routerLinkActive="active" class="nav-item">
+                    <a class="nav-link text-black" routerLink="/register" > Sign up </a>
                 </li>
                  
             </ul>
@@ -43,7 +66,7 @@
             </div>
 
             <div class="order-box col-xs-12 col-md-4 col-sm-3 d-flex justify-content-end">
-                <button routerLinkActive="active" routerLink="/order-now" type="button" class=" btn btn-warning mr-3 text-uppercase text-bold">
+                <button type="button" (click)="selectedProductsService.buyNow()" class=" btn btn-warning mr-3 text-uppercase text-bold">
                     <span class="text-dark">Order now!</span>
                 </button>
             </div>

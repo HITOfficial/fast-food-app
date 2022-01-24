@@ -20,7 +20,7 @@
                         >
                     </button>
                 </div>
-                <app-product-remove (click)="remove()">
+                <app-product-remove (click)="remove()" *ngIf="authService.isAdmin()">
                 </app-product-remove>
             </div>
             <div class="product-details w-100">
@@ -28,27 +28,27 @@
                 <p>Category of product: {{product.productCategory}}</p>
                 <p>Ingredients: {{product.ingredients}}</p>
                 <p>Single product cost: {{currencyService.getPrice(product.price)}} {{currencyService.getCurrency()}}</p>
-                <p>Still avaiable: {{remaining}} </p>
-                <div class="buttons">
+                <p>Still avaiable: {{selectedProductsService.getRemainingProductQuantity(product)}} </p>
+                <div class="buttons" *ngIf="authService.isCustomer()">
                     <div class="buttons-box">
-                        <ng-container *ngIf="remaining > 0">
+                        <ng-container *ngIf="selectedProductsService.getRemainingProductQuantity(product) > 0">
                             <app-product-increment
-                                (click)="addEvent()"
+                                (click)="selectedProductsService.addToShoppingBin(product,1)"
                                 >
                             </app-product-increment>
                         </ng-container>
-                        <ng-container *ngIf="remaining < product.quantity">
+                        <ng-container *ngIf="selectedProductsService.getRemainingProductQuantity(product) < product.quantity">
                             <app-product-reduce
-                                (click)="reduceEvent()"
+                                (click)="selectedProductsService.reduceFromShoppingBin(product,1)"
                                 >
                             </app-product-reduce>
                         </ng-container>
                     </div>
                 </div>
-                <div class="buttons">
+                <div class="buttons" *ngIf="authService.isCustomer()" >
                     <app-product-reset
                         class="margin-0-auto"
-                        (click)="resetEvent()"
+                        (click)="selectedProductsService.removeFromShoppingBin(product)"
                         >
                     </app-product-reset>
                 </div>

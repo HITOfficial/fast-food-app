@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { IMenuProduct } from 'src/app/models/menu-product';
 import { IMenuProductOpinion } from 'src/app/models/menu-product-opinion';
+import { AuthService } from 'src/app/services/auth.service';
 import { MenuService } from 'src/app/services/menu.service';
 
 @Component({
@@ -15,25 +16,16 @@ export class ProductOpinionsComponent implements OnInit {
 
 
 
-  constructor() { }
+  constructor(public authService: AuthService) { }
 
   ngOnInit(): void {
   }
 
 
   addOpinion() {
-    const nicknameElement = document.querySelector<HTMLInputElement>(".nickname");
     const opinionElement = document.querySelector<HTMLInputElement>(".opinion");
 
     let flag: boolean = false;
-    if (!nicknameElement.value) {
-      flag = true;
-      if (!nicknameElement.classList.contains("required")) {
-        nicknameElement.classList.add("required");
-        setTimeout(this.removeWarning, 2000, nicknameElement);
-      }
-    }
-
     if (!opinionElement.value) {
       flag = true;
       if (!opinionElement.classList.contains("required")) {
@@ -43,7 +35,7 @@ export class ProductOpinionsComponent implements OnInit {
     }
 
     if (!flag) {
-      const opinion: IMenuProductOpinion = { user: nicknameElement.value, opinion: opinionElement.value };
+      const opinion: IMenuProductOpinion = { user: this.authService.loggedUserName, opinion: opinionElement.value };
       this.menuService.addOpinion(this.product, opinion);
     }
   }

@@ -1,1 +1,74 @@
-<p>shopping-bin works!</p>
+<div class="shopping-bin-container p-1">
+    <div class="remove-all-container d-flex justify-content-end">
+        <button
+            *ngIf="totalPrice() > 0 else emptyBin" 
+            type="button"
+            class=" btn btn-warning mr-3 text-uppercase text-bold remove-all"
+            (click)="selectedProductsService.removeAllFromShoppingBin()"
+            >
+            <span class="text-dark font">remove all</span>
+        </button>
+        <ng-template #emptyBin>
+            <button 
+            type="button"
+            class=" btn btn-warning mr-3 text-uppercase text-bold remove-all"
+            (click)="selectedProductsService.removeAllFromShoppingBin()"
+            >
+            <span class="text-dark font">Empty Bin</span>
+        </button>
+        </ng-template>
+    </div>
+    <div class="single-item d-flex w-70 justify-content-between">
+        <div>
+            <strong>product</strong>
+        </div>
+        <div>
+            <strong>quantity</strong>
+        </div>
+        <div>
+            <strong>product price</strong>
+        </div>
+        <div>
+            <strong>total price</strong>
+        </div>
+    </div>
+    <div *ngFor="let p of selectedProductsService.shoppingBin" class="single-item d-flex w-70 justify-content-between">
+        <app-product-remove
+                (click) = "remove(); $event.stopPropagation()"
+                 >
+        </app-product-remove>
+        <div>
+            product: {{p.product.productId}}
+        </div>
+        <div>
+            {{p.quantity}}
+        </div>
+        <div>
+            {{currencyService.getPrice(p.product.price)}}
+        </div>
+        <div>
+            {{(currencyService.getPrice(p.product.price) * p.quantity).toFixed(2)}}
+        </div>
+    </div>
+    <hr>
+
+    <div class="total-price d-flex justify-content-between font-weight-bold text-uppercase mt-2">
+        <div>
+            <strong>
+                all products total price
+            </strong>
+        </div>
+        <div class="text-right font-weight-bold"><strong>{{totalPrice()}}</strong></div>
+         
+    </div>
+    <div class="order-now-container d-flex justify-center">
+        <button 
+            (click)="selectedProductsService.buyNow()"
+            type="button"
+            class=" btn btn-warning mr-3 text-uppercase text-bold order-now"
+            >
+            <span class="text-dark font">Order now!</span>
+        </button>
+    </div>
+    
+</div>

@@ -1,5 +1,5 @@
 <div
-    [ngClass]="{'orange-box-shadow': remaining <= 3,'blue-box-shadow': remaining == 0,'highest-price-box-shadow': this.currencyService.getPrice(product.price) === maxPrice, 'lowest-price-box-shadow': this.currencyService.getPrice(product.price) ===minPrice}"
+    [ngClass]="{'orange-box-shadow': selectedProductsService.getRemainingProductQuantity(product) <= 3,'blue-box-shadow': selectedProductsService.getRemainingProductQuantity(product) == 0,'highest-price-box-shadow': this.currencyService.getPrice(product.price) === maxPrice, 'lowest-price-box-shadow': this.currencyService.getPrice(product.price) ===minPrice}"
     class="background-image position-relative mb-5"
     style="background-image: url('{{product.productImage}}');
         background-size: contain;"
@@ -11,7 +11,7 @@
         >
         <p class="pt-1">
             <strong>description: </strong> {{product.description}} 
-            <app-product-remove
+            <app-product-remove *ngIf="authService.isAdmin()"
                 (click) = "remove(); $event.stopPropagation()"
                  >
         </app-product-remove>
@@ -22,15 +22,15 @@
         <p> <strong>Price: </strong>
             {{currencyService.getPrice(product.price)}} {{currencyService.getCurrency()}}
         </p>
-        <div class="buttons">
+        <div  class="buttons" *ngIf="authService.isCustomer()">
             <div class="buttons-box">
-                <ng-container *ngIf="remaining > 0">
+                <ng-container *ngIf="selectedProductsService.getRemainingProductQuantity(product) > 0">
                     <app-product-increment
                         (click)="addEvent(); $event.stopPropagation()"
                         >
                     </app-product-increment>
                 </ng-container>
-                <ng-container *ngIf="remaining < product.quantity">
+                <ng-container *ngIf="selectedProductsService.getRemainingProductQuantity(product) < product.quantity">
                     <app-product-reduce
                         (click)="reduceEvent(); $event.stopPropagation()"
                         >
@@ -38,8 +38,9 @@
                 </ng-container>
             </div>
         </div>
-        <p>{{remaining}}</p>
+        <p>{{selectedProductsService.getRemainingProductQuantity(product)}}</p>
         <app-product-reset
+            *ngIf="authService.isCustomer()"
             (click)="resetEvent(); $event.stopPropagation()"
             >
     </app-product-reset>
@@ -49,9 +50,4 @@
         >
     </div>
     </div>
-    
-    <div class="opinions-container">
-    </div>
-        
-
 </div>

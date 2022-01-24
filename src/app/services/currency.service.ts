@@ -19,7 +19,7 @@ export class CurrencyService {
       return Number((price * 4 / 3).toFixed(2));
     }
     else {
-      return price;
+      return Number(price.toFixed(2));
     }
   }
 

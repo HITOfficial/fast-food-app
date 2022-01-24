@@ -1,8 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IMenuProduct } from 'src/app/models/menu-product';
+import { AuthService } from 'src/app/services/auth.service';
 import { CurrencyService } from 'src/app/services/currency.service';
 import { MenuService } from 'src/app/services/menu.service';
+import { SelectedProductsService } from 'src/app/services/selected-products.service';
 
 @Component({
   selector: 'app-product-details',
@@ -25,7 +27,7 @@ export class ProductDetailsComponent implements OnInit {
     });
   }
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute, public menuService: MenuService, public currencyService: CurrencyService) {
+  constructor(private router: Router, private activatedRoute: ActivatedRoute, public menuService: MenuService, public currencyService: CurrencyService, public selectedProductsService: SelectedProductsService, public authService: AuthService) {
     this.product = this.router.getCurrentNavigation().extras.state.product;
     this.remaining = this.router.getCurrentNavigation().extras.state.remaining;
   }
@@ -44,22 +46,8 @@ export class ProductDetailsComponent implements OnInit {
     }
   }
 
-  addEvent() {
-    if (this.remaining > 0) {
-      this.remaining -= 1;
-    }
-  }
-
-  reduceEvent() {
-    if (this.remaining < this.product.quantity) {
-      this.remaining += 1;
-    }
-  }
-  resetEvent() {
-    this.remaining = this.product.quantity + 0;
-  }
-
   remove() {
+    this.selectedProductsService.removeFromShoppingBin(this.product);
     this.menuService.deleteProduct(this.product);
     this.goToMenu();
   }
