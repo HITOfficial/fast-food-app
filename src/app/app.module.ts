@@ -9,7 +9,6 @@ import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { MenuComponent } from './menu/menu.component';
 import { GetJobComponent } from './get-job/get-job.component';
-import { PromotionalSetsComponent } from './promotional-sets/promotional-sets.component';
 import { ShoppingBinComponent } from './shopping-bin/shopping-bin.component';
 import { SocialsComponent } from './socials/socials.component';
 import { NewsComponent } from './home/news/news.component';
@@ -59,7 +58,6 @@ import { AddProductComponent } from './add-product/add-product.component';
 const routes: Routes = [
   { path: "", component: HomeComponent },
   { path: "menu", component: MenuComponent },
-  { path: "promotional-sets", component: PromotionalSetsComponent },
   { path: "get-job", component: GetJobComponent },
   { path: "shopping-bin", component: ShoppingBinComponent },
   { path: "socials", component: SocialsComponent },
@@ -82,7 +80,6 @@ const routes: Routes = [
     HomeComponent,
     MenuComponent,
     GetJobComponent,
-    PromotionalSetsComponent,
     ShoppingBinComponent,
     SocialsComponent,
     NewsComponent,

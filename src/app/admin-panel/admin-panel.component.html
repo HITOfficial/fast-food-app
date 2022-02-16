@@ -1,25 +1,17 @@
-<div *ngIf="authService.isAdmin()" class="users-container">
+<div *ngIf=" authService.isAdmin()" class="users-container">
     <div *ngFor="let user of users" class="d-flex justify-content-between">
         <div class="user-name">
-           <strong>
-               {{user.email}}
-           </strong>
+            <strong>
+                {{user.email}}
+            </strong>
         </div>
         <div *ngIf="!user.banned else unban">
-            <button 
-                type="button"
-                class="btn bg-danger"
-                (click)="usersService.banUser(user)"
-                >
+            <button type="button" class="btn bg-danger" (click)="usersService.banUser(user)">
                 ban
             </button>
         </div>
         <ng-template #unban>
-            <button 
-                type="button"
-                class="btn bg-success"
-                (click)="usersService.unbanUser(user)"
-                >
+            <button type="button" class="btn bg-success" (click)="usersService.unbanUser(user)">
                 unban
             </button>
         </ng-template>

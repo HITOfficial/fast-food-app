@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { CurrencyService } from '../services/currency.service';
 import { SelectedProductsService } from '../services/selected-products.service';
@@ -16,5 +16,9 @@ export class HeaderComponent implements OnInit {
 	isDataAvailable: boolean = false;
 
 	ngOnInit(): void {
+	}
+
+	ngAfterViewChecked() {
+
 	}
 }

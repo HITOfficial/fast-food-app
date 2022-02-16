@@ -48,41 +48,25 @@ export class AuthService {
   }
 
   getLoggedUserData(uid: string) {
-    this.usersService.getUser(uid).subscribe(data => { this.loggedUserData = data });
+    this.usersService.getUser(uid).subscribe(data => {
+      this.loggedUserData = data;
+    });
   }
 
   isManager(): boolean {
-    if (this.loggedUserUid != undefined) {
-      if (this.loggedUserData.roles.manager) {
-        return true;
-      }
-      return false;
-    }
-    return false;
+    return this.loggedUserData?.roles.manager;
   }
 
   isCustomer(): boolean {
-    if (this.loggedUserUid != undefined) {
-      if (this.loggedUserData.roles.customer) {
-        return true;
-      }
-      return false;
-    }
-    return false;
+    return this.loggedUserData?.roles.customer;
+
   }
 
   isAdmin(): boolean {
-    if (this.loggedUserUid != undefined) {
-      if (this.loggedUserData.roles.admin) {
-        return true;
-      }
-      return false;
-    }
-    return false;
+    return this.loggedUserData?.roles.admin;
   }
 
   canAddComment(p: IMenuProduct): boolean {
-    console.log(this.loggedUserData.boughtProducts);
     if (!this.loggedUserData.banned && Object.keys(this.loggedUserData.boughtProducts).some(k => this.loggedUserData.boughtProducts[k] == p.productId)) {
       return true;
     }
