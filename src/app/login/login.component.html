@@ -1,11 +1,14 @@
 <div class="login-container p-3 d-flex flex-column justify-content-center">
     <div class="inputs-container d-flex flex-column mb-3">
         <label class="text-uppercase font-weight-bold color-warning">EMAIL</label>
-        <input type="email" id="email" class="input-field p-2" placeholder="username@gmail.com" value="customer@gmail.com" #email>
+        <input type="email" id="email" class="input-field p-2" placeholder="username@gmail.com" value="admin@gmail.com"
+            #email>
         <label class="text-uppercase font-weight-bold color-warning">PASSWORD</label>
-        <input type="password" id="password" class="input-field p-2" placeholder="********" value="customercustomer" #password>
+        <input type="password" id="password" class="input-field p-2" placeholder="********" value="adminadmin"
+            #password>
     </div>
-    <button type="button" class="btn bg-warning login pt-2 pb-2" (click)="login(email.value, password.value)">Login</button>
+    <button type="button" class="btn bg-warning login pt-2 pb-2"
+        (click)="login(email.value, password.value)">Login</button>
     <div class="register-container d-flex justify-content-end">
         <button type="button" class="btn register p-0">
             <a class="nav-link text-black" routerLink="/register"> Signup </a>

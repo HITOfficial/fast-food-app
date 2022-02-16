@@ -24,11 +24,12 @@
                     <a class="nav-link text-black" routerLink=""> Home </a>
                     <hr>
                 </li>
-                <li *ngIf="authService.isAdmin() === true" routerLinkActive="active" class="nav-item">
+
+                <li *ngIf="authService.isAdmin() != false" routerLinkActive="active" class="nav-item">
                     <a class="nav-link text-black" routerLink="/admin-panel"> Admin Panel </a>
                     <hr>
                 </li>
-                <li *ngIf="authService.isManager() === true" routerLinkActive="active" class="nav-item">
+                <li *ngIf="authService.isManager() != false" routerLinkActive="active" class="nav-item">
                     <a class="nav-link text-black" routerLink="/add-product"> Add Product </a>
                     <hr>
                 </li>

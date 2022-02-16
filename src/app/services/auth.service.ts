@@ -1,10 +1,10 @@
+import { ThrowStmt } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { IMenuProduct } from '../models/menu-product';
 import { IUser } from '../models/user';
-import { SelectedProductsService } from './selected-products.service';
 import { UsersService } from './users.service';
 
 @Injectable({
@@ -54,16 +54,24 @@ export class AuthService {
   }
 
   isManager(): boolean {
-    return this.loggedUserData?.roles.manager;
+    if (this.loggedUserData === undefined) {
+      return false;
+    }
+    return String(this.loggedUserData.roles.manager) == 'true';
   }
 
   isCustomer(): boolean {
-    return this.loggedUserData?.roles.customer;
-
+    if (this.loggedUserData === undefined) {
+      return false;
+    }
+    return String(this.loggedUserData.roles.customer) == 'true';
   }
 
   isAdmin(): boolean {
-    return this.loggedUserData?.roles.admin;
+    if (this.loggedUserData === undefined) {
+      return false;
+    }
+    return String(this.loggedUserData.roles.admin) == 'true';
   }
 
   canAddComment(p: IMenuProduct): boolean {

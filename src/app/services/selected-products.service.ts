@@ -67,8 +67,8 @@ export class SelectedProductsService {
   }
 
   getRemainingProductQuantity(prod: IMenuProduct): number {
-    if (this.shoppingBin.find(p => p.product === prod) != undefined) {
-      const index = this.shoppingBin.findIndex(p => p.product === prod);
+    if (this.shoppingBin.find(p => p.product == prod)) {
+      const index = this.shoppingBin.findIndex(p => p.product.productId === prod.productId);
       return prod.quantity - this.shoppingBin[index].quantity;
     }
     else {

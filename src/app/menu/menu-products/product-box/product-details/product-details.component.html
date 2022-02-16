@@ -20,7 +20,9 @@
                 <p>Ingredients: {{product.ingredients}}</p>
                 <p>Single product cost: {{currencyService.getPrice(product.price)}} {{currencyService.getCurrency()}}
                 </p>
-                <p>Still avaiable: {{selectedProductsService.getRemainingProductQuantity(product)}} </p>
+                <p *ngIf="authService.isCustomer()">
+                    Still avaiable: {{selectedProductsService.getRemainingProductQuantity(product)}}
+                </p>
                 <div class="buttons" *ngIf="authService.isCustomer()">
                     <div class="buttons-box">
                         <ng-container *ngIf="selectedProductsService.getRemainingProductQuantity(product) > 0">

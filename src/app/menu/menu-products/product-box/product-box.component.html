@@ -28,7 +28,6 @@
         <p *ngIf="authService.isCustomer()">{{selectedProductsService.getRemainingProductQuantity(product)}}</p>
         <app-product-reset *ngIf="authService.isCustomer()" (click)="resetEvent(); $event.stopPropagation()">
         </app-product-reset>
-
         <div class="move-to-details" (click)="goToProductDetalis(); $event.stopPropagation()">
         </div>
     </div>
