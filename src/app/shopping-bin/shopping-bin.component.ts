@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IMenuProduct } from '../models/menu-product';
 import { CurrencyService } from '../services/currency.service';
 import { SelectedProductsService } from '../services/selected-products.service';
 
@@ -27,4 +28,13 @@ export class ShoppingBinComponent implements OnInit {
   remove() {
 
   }
+
+  addEvent(product: IMenuProduct) {
+    this.selectedProductsService.addToShoppingBin(product, 1);
+  }
+
+  reduceEvent(product: IMenuProduct) {
+    this.selectedProductsService.reduceFromShoppingBin(product, 1);
+  }
+
 }

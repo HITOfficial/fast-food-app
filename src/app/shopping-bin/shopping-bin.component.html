@@ -6,40 +6,55 @@
             <span class="text-dark font">remove all</span>
         </button>
         <ng-template #emptyBin>
-            <button type="button" class=" btn btn-warning mr-3 text-uppercase text-bold remove-all"
-                (click)="selectedProductsService.removeAllFromShoppingBin()">
+            <button type="button" class=" btn btn-warning mr-3 text-uppercase text-bold remove-all">
                 <span class="text-dark font">Empty Bin</span>
             </button>
         </ng-template>
     </div>
     <div class="single-item d-flex w-70 justify-content-between">
-        <div>
+        <div class="w-22 text-center">
             <strong>product</strong>
         </div>
-        <div>
+        <div class="w-22 text-center">
             <strong>quantity</strong>
         </div>
-        <div>
+        <div class="w-22 text-center">
             <strong>product price</strong>
         </div>
-        <div>
+        <div class="w-22 text-center">
             <strong>total price</strong>
         </div>
-    </div>
-    <div *ngFor="let p of selectedProductsService.shoppingBin" class="single-item d-flex w-70 justify-content-between">
-        <app-product-remove (click)="remove(); $event.stopPropagation()">
-        </app-product-remove>
-        <div>
-            product: {{p.product.productId}}
+        <div class="w-22 text-center">
         </div>
-        <div>
+    </div>
+    <div *ngFor="let p of selectedProductsService.shoppingBin"
+        class="pt-1 pb-1 single-item d-flex w-70 justify-content-between">
+        <div class="w-22 text-center">
+            {{p.product.productId}}
+        </div>
+        <div class="w-22 text-center">
             {{p.quantity}}
         </div>
-        <div>
+        <div class="w-22 text-center">
             {{currencyService.getPrice(p.product.price)}}
-        </div>
-        <div>
+        </div>`
+        <div class="w-22 text-center">
             {{(currencyService.getPrice(p.product.price) * p.quantity).toFixed(2)}}
+        </div>
+        <div class="position-relative w-22 text-center">
+
+            <ng-container *ngIf="selectedProductsService.getRemainingProductQuantity(p.product) > 0">
+                <app-product-increment (click)="selectedProductsService.addToShoppingBin(p.product,1)">
+                </app-product-increment>
+            </ng-container>
+            <ng-container *ngIf="selectedProductsService.getRemainingProductQuantity(p.product) < p.product.quantity">
+                <app-product-reduce (click)="selectedProductsService.reduceFromShoppingBin(p.product,1)">
+                </app-product-reduce>
+            </ng-container>
+
+
+            <app-product-remove (click)="selectedProductsService.removeFromShoppingBin(p.product)">
+            </app-product-remove>
         </div>
     </div>
     <hr>

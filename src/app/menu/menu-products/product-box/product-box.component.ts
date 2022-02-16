@@ -30,18 +30,13 @@ export class ProductBoxComponent implements OnInit {
   }
 
   addEvent() {
-    if (this.remaining > 0) {
-      this.remaining -= 1;
-    }
     this.selectedProductsService.addToShoppingBin(this.product, 1);
   }
 
   reduceEvent() {
-    if (this.remaining < this.product.quantity) {
-      this.remaining += 1;
-    }
     this.selectedProductsService.reduceFromShoppingBin(this.product, 1);
   }
+
   resetEvent() {
     this.remaining = this.product.quantity + 0;
     this.selectedProductsService.removeFromShoppingBin(this.product);

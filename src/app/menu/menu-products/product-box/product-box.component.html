@@ -13,7 +13,7 @@
         <p> <strong>Price: </strong>
             {{currencyService.getPrice(product.price)}} {{currencyService.getCurrency()}}
         </p>
-        <div class="buttons" *ngIf="authService.isCustomer() === true">
+        <div class="buttons" *ngIf="authService.isCustomer()">
             <div class="buttons-box">
                 <ng-container *ngIf="selectedProductsService.getRemainingProductQuantity(product) > 0">
                     <app-product-increment (click)="addEvent(); $event.stopPropagation()">
@@ -25,7 +25,7 @@
                 </ng-container>
             </div>
         </div>
-        <p>{{selectedProductsService.getRemainingProductQuantity(product)}}</p>
+        <p *ngIf="authService.isCustomer()">{{selectedProductsService.getRemainingProductQuantity(product)}}</p>
         <app-product-reset *ngIf="authService.isCustomer()" (click)="resetEvent(); $event.stopPropagation()">
         </app-product-reset>
 
