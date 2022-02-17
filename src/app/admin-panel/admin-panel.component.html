@@ -6,7 +6,7 @@
             </strong>
         </div>
         <div *ngIf="!user.banned else unban">
-            <button type="button" class="btn bg-succes" (click)="usersService.banUser(user)">
+            <button type="button" class="btn bg-success" (click)="usersService.banUser(user)">
                 unbanned
             </button>
         </div>

@@ -1,4 +1,4 @@
-<div [ngClass]="{'orange-box-shadow': selectedProductsService.getRemainingProductQuantity(product) <= 3,'blue-box-shadow': selectedProductsService.getRemainingProductQuantity(product) == 0,'highest-price-box-shadow': this.currencyService.getPrice(product.price) === maxPrice, 'lowest-price-box-shadow': this.currencyService.getPrice(product.price) ===minPrice}"
+<div [ngClass]="{'orange-box-shadow': selectedProductsService.getRemainingProductQuantity(product) <= 3,'blue-box-shadow': selectedProductsService.getRemainingProductQuantity(product) == 0,'highest-price-box-shadow': this.currencyService.getPrice(product.price) === maxPrice, 'lowest-price-box-shadow': this.currencyService.getPrice(product.price) === minPrice}"
     class="background-image position-relative mb-5" style="background-image: url('{{product.productImage}}');
         background-size: contain;" (click)="active=!active">
     <div class="see-details text-center w-100 h-100 f-500" (click)="goToProductDetalis()">

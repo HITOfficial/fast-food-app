@@ -1,48 +1,36 @@
-<div 
-    class="container-fluid col-xs-12 row d-flex">
+<div class="container-fluid col-xs-12 row d-flex">
     <div class="order-by-price-container p-2">
         <label class="min-price label-price">
-                <p>MIN PRICE</p>
-                <input type="number" min={{minPrice}} max={{maxPrice}} value={{minPrice}} class ="min-price-btn">
+            <p>MIN PRICE</p>
+            <input type="number" min={{minPrice}} max={{maxPrice}} value={{minPrice}} class="min-price-btn">
         </label>
         <label class="max-price">
             <p>MAX PRICE</p>
             <input type="number" min={{minPrice}} max={{maxPrice}} value={{maxPrice}} class="max-price-btn">
         </label>
-        <button type="button" 
-            class="btn bg-warning btn-border-radius-200 mt-2 text-white"
-            (click)="priceFilter()"
-    >
-    FILTER
-</button>
+        <button type="button" class="btn bg-warning btn-border-radius-200 mt-2 text-white" (click)="priceFilter()">
+            FILTER
+        </button>
 
     </div>
-    <ng-container
-        *ngFor="let product of products; let i = index"
-        >
+    <ng-container *ngFor="let product of products; let i = index">
         <ng-container *ngIf="loadProducts">
-            <ng-container
-                *ngIf="activeCategories[product.productCategory] && checkIfPriceBetween(product.price)"
-                >
+            <ng-container *ngIf="activeCategories[product.productCategory] && checkIfPriceBetween(product.price)">
                 <div *ngIf="showProduct(product)" class="col-xs-6 col md-6 col-lg-4 col-xxl-3">
-                    <app-product-box
-                        [maxPrice]="maxPrice"
-                        [minPrice]="minPrice"
-                        [product]="product"
-                        [products]="products"
-                        [index]="i"
-                        [menuService] = "menuService"
-                    >
+                    <app-product-box [maxPrice]="maxPrice" [minPrice]="minPrice" [product]="product"
+                        [products]="products" [index]="i">
                     </app-product-box>
                 </div>
             </ng-container>
         </ng-container>
     </ng-container>
     <div class="pagination-container d-flex justify-content-center mb-3">
-        <button type="button" class="btn" (click)="previousPage()"><</button>
-        <ng-container *ngFor="let index of pagination.totalPagesArray">
-            <button [ngClass]="{'bg-warning text-light': index === pagination.actualPage}" type="button" class="btn" (click)="goToPage(index)">{{index}}</button>
-        </ng-container>
-        <button type="button" class="btn" (click)="nextPage()">></button>
+        <button type="button" class="btn" (click)="previousPage()">
+            < </button>
+                <ng-container *ngFor="let index of pagination.totalPagesArray">
+                    <button [ngClass]="{'bg-warning text-light': index === pagination.actualPage}" type="button"
+                        class="btn" (click)="goToPage(index)">{{index}}</button>
+                </ng-container>
+                <button type="button" class="btn" (click)="nextPage()">></button>
     </div>
 </div>

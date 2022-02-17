@@ -18,11 +18,10 @@ export class ProductBoxComponent implements OnInit {
   @Input() minPrice: number;
   @Input() products: any;
   @Input() index: number;
-  @Input() menuService: MenuService;
   remaining: number;
 
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute, public currencyService: CurrencyService, public selectedProductsService: SelectedProductsService, public authService: AuthService) {
+  constructor(private router: Router, private activatedRoute: ActivatedRoute, public menuService: MenuService, public currencyService: CurrencyService, public selectedProductsService: SelectedProductsService, public authService: AuthService) {
   }
 
   ngOnInit(): void {

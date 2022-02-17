@@ -13,12 +13,11 @@ export class SelectedProductsService {
   shoppingBin: IShoppingBinProduct[] = new Array();
 
   constructor(private menuService: MenuService, private usersService: UsersService, private authService: AuthService) {
-
   }
 
   addToShoppingBin(prod: IMenuProduct, q: number) {
-    if (this.shoppingBin.find(p => p.product === prod) != undefined) {
-      const index = this.shoppingBin.findIndex(p => p.product === prod);
+    const index = this.shoppingBin.findIndex(p => p.product.productId === prod.productId);
+    if (index != -1) {
       this.shoppingBin[index].quantity += q;
     }
     // new product to shopping bin
@@ -28,8 +27,8 @@ export class SelectedProductsService {
   }
 
   reduceFromShoppingBin(prod: IMenuProduct, q: number) {
-    if (this.shoppingBin.find(p => p.product === prod) != undefined) {
-      const index = this.shoppingBin.findIndex(p => p.product === prod);
+    const index = this.shoppingBin.findIndex(p => p.product.productId === prod.productId);
+    if (index != -1) {
       if (this.shoppingBin[index].quantity - q <= 0) {
         this.shoppingBin.splice(index, 1);
       }
@@ -40,8 +39,8 @@ export class SelectedProductsService {
   }
 
   removeFromShoppingBin(prod: IMenuProduct) {
-    if (this.shoppingBin.find(p => p.product === prod) != undefined) {
-      const index = this.shoppingBin.findIndex(p => p.product === prod);
+    const index = this.shoppingBin.findIndex(p => p.product.productId === prod.productId);
+    if (index != -1) {
       this.shoppingBin.splice(index, 1);
     }
   }
@@ -67,12 +66,13 @@ export class SelectedProductsService {
   }
 
   getRemainingProductQuantity(prod: IMenuProduct): number {
-    if (this.shoppingBin.find(p => p.product == prod)) {
-      const index = this.shoppingBin.findIndex(p => p.product.productId === prod.productId);
+    const index = this.shoppingBin.findIndex(p => p.product.productId === prod.productId);
+    // checking if is element taken
+    if (index != -1) {
       return prod.quantity - this.shoppingBin[index].quantity;
     }
     else {
-      return prod.quantity;
+      return prod.quantity
     }
   }
 
