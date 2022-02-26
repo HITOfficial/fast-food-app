@@ -1,6 +1,6 @@
 <div *ngIf="authService.isManager()" class="add-product-container d-flex-row align-center">
 
-    <div  class="d-flex justify-content-center">
+    <div class="d-flex justify-content-center">
         <input #description type="text" placeholder="description">
     </div>
     <div class="d-flex justify-content-center">
@@ -10,6 +10,15 @@
         <input #price type="number" placeholder="price">
     </div>
     <div class="d-flex justify-content-center">
+        <select name="cars" id="cars" selected="burgers">
+            <option value="news">news</option>
+            <option value="burgers">burgers</option>
+            <option value="chicken">chicken</option>
+            <option value="vege">vege</option>
+            <option value="sets">sets</option>
+            <option value="drinks">drinks</option>
+            <option value="additives">additives</option>
+        </select>
         <input #productCategory type="text" placeholder="product category">
     </div>
     <div class="d-flex justify-content-center">
@@ -22,7 +31,9 @@
         <input #quantity type="number" placeholder="quantity">
     </div>
     <div class="d-flex justify-content-center mt-3">
-        <button type="button" (click)="addProduct(description.value, ingredients.value, price.value, productCategory.value, productImage.value, calories.value, quantity.value)" class=" btn btn-warning mr-3 text-uppercase">
+        <button type="button"
+            (click)="addProduct(description.value, ingredients.value, price.value, productCategory.value, productImage.value, calories.value, quantity.value)"
+            class=" btn btn-warning mr-3 text-uppercase">
             <span class="text-dark font-weight-bold">Add product</span>
         </button>
     </div>

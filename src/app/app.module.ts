@@ -53,6 +53,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { AddProductComponent } from './add-product/add-product.component';
+import { ProductEditComponent } from './menu/menu-products/product-box/product-details/product-edit/product-edit.component';
 
 
 const routes: Routes = [
@@ -119,6 +120,7 @@ const routes: Routes = [
     RegisterComponent,
     AdminPanelComponent,
     AddProductComponent,
+    ProductEditComponent,
   ],
 
   imports: [
