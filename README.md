@@ -1,27 +1,25 @@
-# FastFoodApp
+# Fast-Food-App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.6.
+## Project Realised for AGH-UST course Introduction to web applications.
+#### Project is a full responsive web application for ordering food in fast food restaurants. Application is created with Angular and Firebase. Authenticated users can order food, and add new comments to ordered food. Admins can change privileges for another accounts, editing ,deleting and adding new fast-foods to the menu. Everyone can see menu without details of single product. Menu includes many filters and tags. Every single product have info about availability.
+### Stack: Angular, Firebase, TypeScript, Bootstrap
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `npm start / ng serve` to run project. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+#####  Many responsive views: like login, register, menu, order, profile, admin panel, etc.
+![img1](readme-images%2Fimg1)
+![menu](readme-images%2Fmenu)
+![menu-item](readme-images%2Fmenu-item)
+![shopping-bin](readme-images%2Fshopping-bin)
+![panel](readme-images%2Fpanel)
+![signin](readme-images%2Fsignin)
+![signup](readme-images%2Fsignup)
+## Mobile views
+![mobile1](readme-images%2Fmobile1)
+![mobile2](readme-images%2Fmobile2)
+![mobile3](readme-images%2Fmobile3)
+![mobile4](readme-images%2Fmobile4)
+![mobile5](readme-images%2Fmobile5)
+![mobile6](readme-images%2Fmobile6)
